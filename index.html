@@ -9,14 +9,14 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome Icons (Replaced Lucide to fix import errors) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- React & ReactDOM (Production) -->
+    <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
-    <!-- Babel for in-browser JSX compilation -->
+    <!-- Babel (For JSX compilation in browser) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
@@ -34,7 +34,8 @@
 <body class="bg-[#020617] text-slate-50 font-sans selection:bg-[#E50914] selection:text-white overflow-x-hidden">
     <div id="root"></div>
 
-    <script type="text/babel">
+    <!-- No import statements allowed inside here -->
+    <script type="text/babel" data-presets="react,env">
         const { useState, useEffect, useRef, createContext, useContext, useMemo } = React;
 
         // Language Context
