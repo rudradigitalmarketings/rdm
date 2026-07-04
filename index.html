@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rudra Digital Marketings - Best Web Design, SEO, and Digital Marketing Agency for Small Businesses in Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti, Bandanwara.">
-    <meta name="keywords" content="Website Design, Local SEO, Social Media Ads, Video Editing, Digital Marketing Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti, Bandanwara">
+    <title>Rudra Digital Marketings | Best Digital Marketing Agency in Kekri & Ajmer</title>
+    
+    <!-- SEO Meta Tags for Local Ranking -->
+    <meta name="description" content="बड़ी एजेंसियों जैसा काम, छोटे व्यापारियों वाले दाम! We provide Website Development, Local SEO, Social Media Ads & Lead Generation services in Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti, Bandanwara.">
+    <meta name="keywords" content="Digital Marketing Kekri, Web Developer Ajmer, Local SEO Sarwar, Social Media Ads, Rudra Digital Marketings, Lead Generation, Best SEO Agency Rajasthan">
     <meta name="author" content="Rudra Digital Marketings">
-    <title>Rudra Digital Marketings | Premium Digital Agency</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            dark: '#0B1120',
-                            blue: '#1E3A8A',
-                            gold: '#F59E0B',
-                            light: '#F8FAFC',
-                        }
+                        primary: '#0a192f', // Deep Luxury Blue
+                        secondary: '#112240', // Lighter Navy
+                        accent: '#f59e0b', // Premium Gold/Orange
+                        accentHover: '#d97706',
+                        lightbg: '#f8fafc',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -40,666 +41,702 @@
 
     <style>
         /* Custom Animations & Styles */
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
-        
-        .fade-in-section {
+        .fade-in {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, visibility;
         }
-        .fade-in-section.is-visible {
+        .fade-in.visible {
             opacity: 1;
-            transform: none;
+            transform: translateY(0);
         }
 
-        /* Marquee Animation */
+        /* Infinite Marquee */
         .marquee-container {
-            display: flex;
             overflow: hidden;
-            user-select: none;
-            gap: 2rem;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+            background: #112240;
+            padding: 20px 0;
+            display: flex;
+        }
+        .marquee-container::before, .marquee-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, #112240 0%, transparent 100%);
+        }
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, #112240 0%, transparent 100%);
         }
         .marquee-content {
-            flex-shrink: 0;
-            display: flex;
-            justify-content: space-around;
-            min-width: 100%;
-            gap: 2rem;
-            animation: scroll-x 20s linear infinite;
+            display: inline-flex;
+            animation: marquee 30s linear infinite;
         }
-        @keyframes scroll-x {
-            from { transform: translateX(0); }
-            to { transform: translateX(calc(-100% - 2rem)); }
+        .marquee-content:hover {
+            animation-play-state: paused;
         }
-        
-        /* Glassmorphism for Form */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        /* Hide scrollbar for tabs */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 4px;
+        }
     </style>
 </head>
-<body class="bg-brand-light text-slate-800 antialiased selection:bg-brand-gold selection:text-white">
+<body class="font-sans text-gray-800 bg-lightbg overflow-x-hidden antialiased">
 
-    <nav class="fixed w-full bg-brand-dark/95 backdrop-blur-md text-white z-50 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold font-heading text-white tracking-wider">
-                        Rudra<span class="text-brand-gold">Digital</span>
-                    </a>
-                </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#services" class="hover:text-brand-gold transition">सर्विसेज</a>
-                    <a href="#packages" class="hover:text-brand-gold transition">पैकेज</a>
-                    <a href="#ebook" class="hover:text-brand-gold transition text-brand-gold font-semibold">🔥 ई-बुक्स</a>
-                    <a href="#store" class="hover:text-brand-gold transition">स्टोर</a>
-                    <a href="https://wa.me/919799705368" target="_blank" class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition shadow-[0_0_15px_rgba(245,158,11,0.5)]">
-                        सम्पर्क करें
-                    </a>
-                </div>
-            </div>
+    <header class="fixed w-full top-0 z-50 bg-primary/95 backdrop-blur-md shadow-lg border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-chart-line text-accent"></i> 
+                Rudra Digital
+            </a>
+            <nav class="hidden md:flex gap-6 text-gray-300 font-medium text-sm tracking-wide">
+                <a href="#services" class="hover:text-accent transition">Services</a>
+                <a href="#packages" class="hover:text-accent transition">Packages</a>
+                <a href="#ebook" class="hover:text-accent transition">E-Books</a>
+                <a href="#store" class="hover:text-accent transition">Store</a>
+                <a href="#contact" class="hover:text-accent transition">Contact</a>
+            </nav>
+            <a href="https://wa.me/919799705368?text=Hello%20Rudra%20Digital%20Marketings,%20I%20want%20a%20free%20consultation." target="_blank" class="hidden md:inline-block bg-accent hover:bg-accentHover text-primary font-bold py-2 px-5 rounded-full transition transform hover:scale-105 shadow-lg">
+                <i class="fa-brands fa-whatsapp mr-1"></i> Free Consultation
+            </a>
+            <!-- Mobile Menu Icon -->
+            <button class="md:hidden text-white text-2xl" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-    </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-secondary w-full absolute top-full left-0 flex flex-col p-4 shadow-xl border-t border-gray-700">
+            <a href="#services" class="text-white py-2 border-b border-gray-700">Services</a>
+            <a href="#packages" class="text-white py-2 border-b border-gray-700">Packages</a>
+            <a href="#ebook" class="text-white py-2 border-b border-gray-700">E-Books</a>
+            <a href="#store" class="text-white py-2 border-b border-gray-700">Store</a>
+            <a href="#contact" class="text-white py-2">Contact</a>
+        </div>
+    </header>
 
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-dark overflow-hidden">
-        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/40 to-transparent"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-white font-heading leading-tight mb-6 fade-in-section">
-                बड़ी एजेंसियों जैसा काम,<br>
-                <span class="text-brand-gold">छोटे व्यापारियों वाले दाम!</span>
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 bg-primary text-white text-center px-4 relative overflow-hidden">
+        <!-- Abstract Background element -->
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
+
+        <div class="container mx-auto max-w-4xl relative z-10 fade-in">
+            <div class="inline-block bg-secondary border border-gray-700 rounded-full px-4 py-1.5 mb-6 text-sm font-semibold text-accent shadow-sm">
+                🏆 #1 Lead Generation Agency in Rajasthan
+            </div>
+            <h1 class="text-4xl md:text-6xl font-heading font-bold leading-tight mb-6">
+                बड़ी एजेंसियों जैसा काम, <br> <span class="text-gradient">छोटे व्यापारियों वाले दाम!</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 fade-in-section">
-                आपके बिज़नेस को ऑनलाइन ले जाने की पूरी ज़िम्मेदारी हमारी। बिना किसी महंगे कांट्रैक्ट के, अपने शहर में ग्राहकों की लाइन लगाएं। वेबसाइट बनाने से लेकर, सोशल मीडिया, वीडियो एडिटिंग और गूगल पर नंबर #1 आने तक—सब कुछ एक ही जगह।
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+                बिना किसी महंगे कांट्रैक्ट के, अपने शहर में ग्राहकों की लाइन लगाएं। वेबसाइट बनाने से लेकर, सोशल मीडिया, वीडियो एडिटिंग और गूगल पर नंबर #1 आने तक—सब कुछ एक ही जगह।
             </p>
-            <div class="fade-in-section flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/919799705368?text=Hello%20Rudra%20Digital%20Marketings,%20I%20want%20a%20free%20consultation." target="_blank" class="bg-brand-gold text-brand-dark text-lg font-bold px-8 py-4 rounded-full hover:bg-yellow-400 hover:scale-105 transition transform shadow-xl shadow-brand-gold/30 flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-2xl"></i> मुफ़्त सलाह के लिए व्हाट्सएप करें
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/919799705368?text=Hello%20Rudra%20Digital%20Marketings,%20I%20want%20a%20free%20consultation." target="_blank" class="bg-accent hover:bg-accentHover text-primary font-bold text-lg py-4 px-8 rounded-full transition duration-300 transform hover:-translate-y-1 shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> मुफ़्त सलाह के लिए व्हाट्सएप करें
                 </a>
             </div>
-            <div class="mt-12 text-sm text-gray-400 fade-in-section">
-                <span>📍 Service Area: Kekri, Sarwar, Ajmer & All Over India</span>
+            <div class="mt-12 flex justify-center items-center gap-6 text-gray-400 text-sm">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-accent"></i> 100% Results</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-accent"></i> 24/7 Support</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-accent"></i> Local Experts</span>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in-section">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">छोटे व्यापारी हमें क्यों चुनें?</h2>
-                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+    <section class="py-20 bg-lightbg px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">छोटे व्यापारी <span class="text-accent">Rudra Digital</span> क्यों चुनें?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">लोकल बिजनेसेज को बड़ी एजेंसियों के साथ काम करने में बजट और बातचीत की दिक्कत होती है, पर हमारे साथ नहीं।</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Point 1 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
-                    <div class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i class="fas fa-handshake text-2xl text-brand-blue"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">कोई मिडिलमैन नहीं, सीधी बात</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">आप किसी एजेंसी के सेल्समैन से नहीं, बल्कि सीधे काम करने वाले एक्सपर्ट (Rudra Digital) से बात करते हैं। आपका कीमती समय और पैसा बचता है।</p>
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-accent transition duration-300 transform hover:-translate-y-2 fade-in text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner">🤝</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">कोई मिडिलमैन नहीं, सीधी बात</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">आप किसी एजेंसी के सेल्समैन से नहीं, बल्कि सीधे काम करने वाले एक्सपर्ट से बात करते हैं। आपका कीमती समय और पैसा बचता है।</p>
                 </div>
-                <!-- Point 2 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
-                    <div class="w-14 h-14 bg-green-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i class="fas fa-coins text-2xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">एकदम बजट-फ्रेंडली रेट्स</h3>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-accent transition duration-300 transform hover:-translate-y-2 fade-in text-center" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner">💰</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">एकदम बजट-फ्रेंडली रेट्स</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">हमारा कोई बड़ा ऑफिस या फालतू के खर्चे नहीं हैं, इसलिए हम आपको मार्केट से आधी कीमत पर बेस्ट क्वालिटी काम देते हैं।</p>
                 </div>
-                <!-- Point 3 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
-                    <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i class="fas fa-chart-line text-2xl text-brand-gold"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">लोकल मार्केट की समझ</h3>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-accent transition duration-300 transform hover:-translate-y-2 fade-in text-center" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner">📈</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">लोकल मार्केट की समझ</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">मुझे पता है कि आपके शहर के लोकल ग्राहक क्या देखकर दुकान पर आते हैं। हम उसी हिसाब से स्ट्रेटेजी बनाते हैं।</p>
                 </div>
-                <!-- Point 4 -->
-                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
-                    <div class="w-14 h-14 bg-purple-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i class="fas fa-tools text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">ऑल-इन-वन सर्विस</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">आपको वीडियो एडिटर, डिज़ाइनर और डेवलपर के लिए अलग-अलग लोगों को ढूंढने और पैसे देने की ज़रूरत नहीं। सारा काम हम खुद संभालते हैं।</p>
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-accent transition duration-300 transform hover:-translate-y-2 fade-in text-center" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner">🛠️</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">ऑल-इन-वन सर्विस</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">आपको वीडियो एडिटर, डिज़ाइनर और डेवलपर के लिए अलग-अलग लोगों को ढूंढने की ज़रूरत नहीं। सारा काम हम खुद संभालते हैं।</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-20 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in-section">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">हमारी अफोर्डेबल प्राइस लिस्ट</h2>
-                <p class="mt-4 text-gray-600">अपनी ज़रूरत के हिसाब से कोई भी सिंगल सर्विस चुनें।</p>
-                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+    <section id="services" class="py-20 bg-white px-4 border-t border-gray-100">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">हमारी <span class="text-accent">अफ़ोर्डेबल</span> प्राइस लिस्ट</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">अगर आप पूरा पैकेज नहीं लेना चाहते, तो अपनी ज़रूरत के हिसाब से कोई भी एक सर्विस चुनें।</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Website Creation -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-brand-blue fade-in-section">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-globe text-2xl text-brand-blue"></i>
-                        <h3 class="text-lg font-bold">वेबसाइट निर्माण (Website)</h3>
-                    </div>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li class="flex justify-between border-b pb-2"><span>बेसिक (3-5 पेजेस):</span> <span class="font-bold text-green-600">₹6,999</span></li>
-                        <li class="flex justify-between border-b pb-2"><span>एडवांस (लीड्स के लिए):</span> <span class="font-bold text-green-600">₹9,999</span></li>
-                        <li class="flex justify-between pb-2"><span>ई-कॉमर्स (ऑनलाइन दुकान):</span> <span class="font-bold text-green-600">₹14,999</span></li>
+                <!-- Service 1 -->
+                <div class="bg-lightbg p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-xl transition fade-in">
+                    <div class="text-accent text-3xl mb-4"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-2">वेबसाइट निर्माण</h3>
+                    <ul class="text-sm text-gray-600 space-y-3 mt-4">
+                        <li class="flex justify-between border-b pb-2"><span>बेसिक (3-5 पेजेस)</span> <strong class="text-primary">₹6,999</strong></li>
+                        <li class="flex justify-between border-b pb-2"><span>एडवांस (लैंडिंग पेज)</span> <strong class="text-primary">₹9,999</strong></li>
+                        <li class="flex justify-between"><span>ई-कॉमर्स (ऑनलाइन दुकान)</span> <strong class="text-primary">₹14,999</strong></li>
                     </ul>
                 </div>
 
-                <!-- Local SEO -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-red-500 fade-in-section">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-map-marker-alt text-2xl text-red-500"></i>
-                        <h3 class="text-lg font-bold">लोकल SEO और गूगल मैप्स</h3>
-                    </div>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li class="flex justify-between border-b pb-2"><span>GMB प्रोफाइल सेटअप:</span> <span class="font-bold text-green-600">₹1,999 (एक बार)</span></li>
-                        <li class="flex justify-between pb-2"><span>मंथली गूगल मैप्स रैंकिंग:</span> <span class="font-bold text-green-600">₹3,499/महीना</span></li>
+                <!-- Service 2 -->
+                <div class="bg-lightbg p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-xl transition fade-in">
+                    <div class="text-accent text-3xl mb-4"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-2">लोकल SEO / गूगल मैप्स</h3>
+                    <ul class="text-sm text-gray-600 space-y-3 mt-4">
+                        <li class="flex justify-between border-b pb-2"><span>GMB सेटअप</span> <strong class="text-primary">₹1,999 <small>(एक बार)</small></strong></li>
+                        <li class="flex justify-between"><span>मंथली रैंकिंग SEO</span> <strong class="text-primary">₹3,499 <small>/ महीना</small></strong></li>
                     </ul>
                 </div>
 
-                <!-- Content Creation -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-purple-500 fade-in-section">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-video text-2xl text-purple-500"></i>
-                        <h3 class="text-lg font-bold">कंटेंट क्रिएशन (Video/Graphics)</h3>
-                    </div>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li class="flex justify-between border-b pb-2"><span>रील्स/शॉर्ट्स एडिटिंग:</span> <span class="font-bold text-green-600">₹499 - ₹799/pc</span></li>
-                        <li class="flex justify-between border-b pb-2"><span>रील्स मंथली (8 वीडियोस):</span> <span class="font-bold text-green-600">₹3,999/महीना</span></li>
-                        <li class="flex justify-between border-b pb-2"><span>पोस्ट/बैनर डिज़ाइन:</span> <span class="font-bold text-green-600">₹199 - ₹299/pc</span></li>
-                        <li class="flex justify-between pb-2"><span>फेस्टिवल पैक (12 इमेजेस):</span> <span class="font-bold text-green-600">₹2,499/महीना</span></li>
+                <!-- Service 3 -->
+                <div class="bg-lightbg p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-xl transition fade-in">
+                    <div class="text-accent text-3xl mb-4"><i class="fa-solid fa-photo-film"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-2">कंटेंट क्रिएशन</h3>
+                    <ul class="text-sm text-gray-600 space-y-3 mt-4">
+                        <li class="flex justify-between border-b pb-2"><span>रील्स/शॉर्ट्स एडिटिंग</span> <strong class="text-primary">₹499-₹799 <small>/ वीडियो</small></strong></li>
+                        <li class="flex justify-between border-b pb-2"><span>रील्स पैक (8 वीडियोस)</span> <strong class="text-primary">₹3,999 <small>/ महीना</small></strong></li>
+                        <li class="flex justify-between border-b pb-2"><span>पोस्ट/बैनर डिज़ाइन</span> <strong class="text-primary">₹199-₹299 <small>/ इमेज</small></strong></li>
+                        <li class="flex justify-between"><span>फेस्टिवल पैक (12 इमेज)</span> <strong class="text-primary">₹2,499 <small>/ महीना</small></strong></li>
                     </ul>
                 </div>
 
-                <!-- Full Website SEO -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-green-500 fade-in-section">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-search text-2xl text-green-500"></i>
-                        <h3 class="text-lg font-bold">सर्च इंजन ऑप्टिमाइजेशन (SEO)</h3>
-                    </div>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li class="flex flex-col pb-2">
-                            <span class="mb-1">वेबसाइट को गूगल के पहले पेज पर लाना (लॉन्ग-टर्म फ्री ट्रैफिक):</span> 
-                            <span class="font-bold text-green-600 text-right">₹5,999/महीना</span>
-                        </li>
+                <!-- Service 4 -->
+                <div class="bg-lightbg p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-xl transition fade-in">
+                    <div class="text-accent text-3xl mb-4"><i class="fa-brands fa-google"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-2">सर्च इंजन ऑप्टिमाइजेशन</h3>
+                    <p class="text-sm text-gray-600 mt-2">वेबसाइट को गूगल के पहले पेज पर लाना — फ्री ट्रैफिक और परमानेंट ग्राहकों के लिए।</p>
+                    <div class="mt-4 text-xl font-bold text-primary">₹5,999 <span class="text-sm font-normal text-gray-500">/ महीना</span></div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-lightbg p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-xl transition fade-in">
+                    <div class="text-accent text-3xl mb-4"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-2">पेड ऐड्स (Google & Meta)</h3>
+                    <p class="text-xs text-green-600 font-bold mb-2">100% Lead Generation</p>
+                    <ul class="text-sm text-gray-600 space-y-3 mt-2">
+                        <li class="flex justify-between border-b pb-2"><span>ऐड सेटअप और रन</span> <strong class="text-primary">₹3,999 <small>/ महीना</small></strong></li>
+                        <li class="flex justify-between"><span>कम्पलीट लीड जनरेशन</span> <strong class="text-primary">₹5,999 <small>/ महीना</small></strong></li>
                     </ul>
                 </div>
 
-                <!-- Social Media Ads -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-blue-500 fade-in-section">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-bullhorn text-2xl text-blue-500"></i>
-                        <h3 class="text-lg font-bold">सोशल मीडिया ऐड्स (100% Leads)</h3>
-                    </div>
-                    <p class="text-xs text-gray-500 mb-2">Instagram, Facebook, Google, YouTube</p>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li class="flex justify-between border-b pb-2"><span>ऐड सेटअप और रन:</span> <span class="font-bold text-green-600">₹3,999/महीना</span></li>
-                        <li class="flex justify-between pb-2"><span>कम्पलीट लीड जनरेशन:</span> <span class="font-bold text-green-600">₹5,999/महीना</span></li>
-                    </ul>
-                </div>
-
-                <!-- Reviews Management -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-brand-gold fade-in-section">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-star text-2xl text-brand-gold"></i>
-                        <h3 class="text-lg font-bold">रिव्यूज और रेटिंग्स मैनेजमेंट</h3>
-                    </div>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li class="flex flex-col pb-2">
-                            <span class="mb-1">गूगल रिव्यूज स्ट्रेटेजी और QR सेटअप (5-स्टार रेटिंग्स के लिए):</span> 
-                            <span class="font-bold text-green-600 text-right">₹1,499 (एक बार)</span>
-                        </li>
-                    </ul>
+                <!-- Service 6 -->
+                <div class="bg-lightbg p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-xl transition fade-in">
+                    <div class="text-accent text-3xl mb-4"><i class="fa-solid fa-star"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-2">रिव्यूज और रेटिंग्स मैनेजमेंट</h3>
+                    <p class="text-sm text-gray-600 mt-2">गूगल रिव्यूज स्ट्रेटेजी और QR सेटअप ताकि कस्टमर 5-स्टार रेटिंग दें।</p>
+                    <div class="mt-4 text-xl font-bold text-primary">₹1,499 <span class="text-sm font-normal text-gray-500">(एक बार)</span></div>
                 </div>
             </div>
 
-            <div class="mt-10 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-center fade-in-section">
-                <p class="text-yellow-800 font-semibold"><i class="fas fa-lightbulb text-brand-gold mr-2"></i> नोट: अगर आप एक से ज्यादा सिंगल सर्विसेज साथ में लेते हैं, तो आपको स्पेशल कॉम्बो डिस्काउंट दिया जाएगा!</p>
+            <div class="mt-12 text-center bg-orange-50 border border-orange-200 rounded-lg p-4 inline-block mx-auto max-w-3xl fade-in w-full">
+                <p class="text-orange-800 font-medium">
+                    <i class="fa-solid fa-gift mr-2 text-accent"></i> 
+                    <strong>नोट:</strong> अगर आप एक से ज्यादा सिंगल सर्विसेज साथ में लेते हैं, तो आपको <span class="underline font-bold">स्पेशल कॉम्बो डिस्काउंट</span> दिया जाएगा।
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="packages" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in-section">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">Digital Marketing Packages</h2>
-                <p class="mt-4 text-gray-600">अपने बिज़नेस की ग्रोथ के लिए सही पैकेज चुनें</p>
-                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+    <section id="packages" class="py-20 bg-primary text-white px-4 relative">
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">डिजिटल मार्केटिंग <span class="text-accent">पैकेजेस</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">अपने बिज़नेस की ज़रूरत के हिसाब से सही पैकेज चुनें और तेज़ी से ग्रो करें।</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <!-- Startup Pack -->
-                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200 shadow-sm fade-in-section">
+                <div class="bg-secondary p-8 rounded-2xl border border-gray-700 fade-in">
                     <h3 class="text-2xl font-bold mb-2">Startup Pack 📋</h3>
-                    <p class="text-gray-500 text-sm mb-6">लोकल शुरुआत के लिए</p>
-                    <div class="mb-6">
-                        <span class="text-xl font-bold text-brand-blue">₹8k-12k</span><span class="text-sm text-gray-500"> (वेबसाइट)</span><br>
-                        <span class="text-xl font-bold text-brand-blue">+ ₹4k-6k</span><span class="text-sm text-gray-500"> /महीना</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-700 mb-8">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 3-5 पेजों की बेसिक वेबसाइट</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> गूगल मैप्स सेटअप और वेरिफिकेशन</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 6 डिज़ाइनर इमेजेस/महीना</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 2 सिंपल रील्स/महीना</li>
-                        <li><i class="fas fa-times text-red-400 mr-2"></i> सोशल मीडिया मैनेजमेंट</li>
-                        <li><i class="fas fa-times text-red-400 mr-2"></i> पेड ऐड्स / लीड जनरेशन</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> व्हाट्सएप सपोर्ट</li>
+                    <p class="text-gray-400 text-sm mb-6">लोकल शुरुआत करने वालों के लिए</p>
+                    <div class="text-3xl font-bold text-accent mb-6">₹4k-6k<span class="text-base text-gray-400 font-normal">/महीना</span></div>
+                    <p class="text-xs text-gray-400 mb-6">+ ₹8k-12k (वन-टाइम वेबसाइट)</p>
+                    
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> 3-5 पेजों की बेसिक वेबसाइट</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> गूगल मैप्स सेटअप और वेरिफिकेशन</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> 6 डिज़ाइनर इमेजेस / महीना</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> 2 सिंपल रील्स / महीना</li>
+                        <li class="flex items-start opacity-50"><i class="fa-solid fa-xmark text-red-400 mt-1 mr-3"></i> सोशल मीडिया मैनेजमेंट</li>
+                        <li class="flex items-start opacity-50"><i class="fa-solid fa-xmark text-red-400 mt-1 mr-3"></i> पेड ऐड्स & लीड जनरेशन</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> व्हाट्सएप सपोर्ट</li>
                     </ul>
-                    <a href="https://wa.me/919799705368?text=Hello,%20I%20am%20interested%20in%20the%20Startup%20Pack." class="block w-full py-3 px-4 bg-white border-2 border-brand-blue text-brand-blue text-center font-bold rounded-xl hover:bg-brand-blue hover:text-white transition">अभी शुरू करें ↗️</a>
+                    <a href="https://wa.me/919799705368?text=Hello%20Rudra,%20I%20am%20interested%20in%20the%20Startup%20Pack." target="_blank" class="block w-full py-3 px-4 border border-accent text-accent text-center rounded-lg hover:bg-accent hover:text-primary transition font-bold">अभी शुरू करें ↗️</a>
                 </div>
 
                 <!-- Growth Pack (Highlighted) -->
-                <div class="bg-brand-dark rounded-3xl p-8 border-2 border-brand-gold shadow-2xl transform md:scale-105 relative fade-in-section z-10">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-gold text-brand-dark px-4 py-1 rounded-full text-sm font-bold shadow-lg">सबसे पॉपुलर</div>
-                    <h3 class="text-2xl font-bold mb-2 text-white">Growth Pack 🚀</h3>
-                    <p class="text-gray-400 text-sm mb-6">ज्यादा ग्राहक लाने के लिए</p>
-                    <div class="mb-6">
-                        <span class="text-3xl font-bold text-brand-gold">₹12k - ₹18k</span><span class="text-sm text-gray-400"> /महीना</span>
+                <div class="bg-gradient-to-b from-gray-800 to-secondary p-1 lg:py-12 lg:px-8 rounded-2xl border-2 border-accent transform lg:scale-105 shadow-[0_0_30px_rgba(245,158,11,0.2)] relative fade-in z-10">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-primary font-bold px-4 py-1 rounded-full text-sm">
+                        सबसे पॉपुलर
                     </div>
-                    <ul class="space-y-4 text-sm text-gray-300 mb-8">
-                        <li><i class="fas fa-check text-brand-gold mr-2"></i> फुल एडवांस वेबसाइट</li>
-                        <li><i class="fas fa-check text-brand-gold mr-2"></i> गूगल मैप्स डेली ऑप्टिमाइजेशन</li>
-                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 12-15 प्रीमियम ग्राफिक्स</li>
-                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 4-6 हाई-क्वालिटी रील्स (टेक्स्ट/इफेक्ट्स)</li>
-                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Facebook और Instagram मैनेजमेंट</li>
-                        <li><i class="fas fa-check text-brand-gold mr-2"></i> बेसिक रिव्यूज गाइडेंस</li>
-                        <li><i class="fas fa-times text-red-400 mr-2"></i> लीड जनरेशन / ऐड्स</li>
-                        <li><i class="fas fa-check text-brand-gold mr-2"></i> मंथली प्रोग्रेस रिपोर्ट</li>
-                    </ul>
-                    <a href="https://wa.me/919799705368?text=Hello,%20I%20am%20interested%20in%20the%20Growth%20Pack%20(Most%20Popular)." class="block w-full py-3 px-4 bg-brand-gold text-brand-dark text-center font-bold rounded-xl hover:bg-yellow-400 transition shadow-lg shadow-brand-gold/20">सबसे पॉपुलर पैक ↗️</a>
+                    <div class="p-7 lg:p-0">
+                        <h3 class="text-2xl font-bold mb-2">Growth Pack 🚀</h3>
+                        <p class="text-gray-300 text-sm mb-6">ज्यादा ग्राहकों तक पहुंचने के लिए</p>
+                        <div class="text-4xl font-bold text-white mb-6">₹12k-18k<span class="text-base text-gray-400 font-normal">/महीना</span></div>
+                        
+                        <ul class="space-y-4 text-sm text-gray-200 mb-8">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accent mt-1 mr-3"></i> फुल एडवांस वेबसाइट</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accent mt-1 mr-3"></i> गूगल मैप्स डेली ऑप्टिमाइजेशन</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accent mt-1 mr-3"></i> 12-15 प्रीमियम ग्राफिक्स</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accent mt-1 mr-3"></i> 4-6 हाई-क्वालिटी रील्स (टेक्स्ट/इफेक्ट्स)</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accent mt-1 mr-3"></i> Facebook और Instagram मैनेजमेंट</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accent mt-1 mr-3"></i> बेसिक रिव्यूज गाइडेंस</li>
+                            <li class="flex items-start opacity-50"><i class="fa-solid fa-xmark text-red-400 mt-1 mr-3"></i> पेड ऐड्स & लीड जनरेशन</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accent mt-1 mr-3"></i> मंथली प्रोग्रेस रिपोर्ट</li>
+                        </ul>
+                        <a href="https://wa.me/919799705368?text=Hello%20Rudra,%20I%20want%20the%20Growth%20Pack%20to%20scale%20my%20business." target="_blank" class="block w-full py-4 px-4 bg-accent text-primary text-center rounded-lg hover:bg-accentHover transition font-bold text-lg shadow-lg">सबसे पॉपुलर पैक ↗️</a>
+                    </div>
                 </div>
 
                 <!-- Dominator Pack -->
-                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200 shadow-sm fade-in-section">
+                <div class="bg-secondary p-8 rounded-2xl border border-gray-700 fade-in">
                     <h3 class="text-2xl font-bold mb-2">Dominator Pack 🔥</h3>
-                    <p class="text-gray-500 text-sm mb-6">फुल बिजनेस टेकओवर</p>
-                    <div class="mb-6">
-                        <span class="text-xl font-bold text-brand-blue">₹25k - ₹35k</span><span class="text-sm text-gray-500"> /महीना</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-700 mb-8">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> ई-कॉमर्स / ऑनलाइन दुकान</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> पूरे शहर में नंबर #1 रैंकिंग (SEO)</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 20+ प्रो-लेवल फेस्टिव/ब्रांड पोस्ट्स</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 8-10 वायरल रील्स (वॉइसओवर)</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> सभी हैंडल्स SMM + एडवांस ब्रांडिंग</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Paid Ads (FB, Insta, Google)</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 100% लीड जनरेशन (कस्टमर लिस्ट)</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 24/7 डायरेक्ट कॉल सपोर्ट</li>
+                    <p class="text-gray-400 text-sm mb-6">फुल बिजनेस टेकओवर के लिए</p>
+                    <div class="text-3xl font-bold text-accent mb-6">₹25k-35k<span class="text-base text-gray-400 font-normal">/महीना</span></div>
+                    
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> ई-कॉमर्स / ऑनलाइन दुकान</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> पूरे शहर में नंबर #1 रैंकिंग</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> 20+ प्रो-लेवल फेस्टिव/ब्रांड पोस्ट्स</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> 8-10 वायरल रील्स (वॉइसओवर)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> सभी हैंडल्स + एडवांस ब्रांडिंग</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> Paid Ads (FB, Insta, Google Ads)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> ग्राहकों के नाम और मोबाइल की लिस्ट</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mt-1 mr-3"></i> 24/7 कॉल सपोर्ट + वीकली रिपोर्ट</li>
                     </ul>
-                    <a href="https://wa.me/919799705368?text=Hello,%20I%20am%20interested%20in%20the%20Dominator%20Pack%20to%2010x%20my%20business." class="block w-full py-3 px-4 bg-brand-blue text-white text-center font-bold rounded-xl hover:bg-blue-800 transition">बिजनेस को 10x बढ़ाएं ↗️</a>
+                    <a href="https://wa.me/919799705368?text=Hello%20Rudra,%20I%20am%20ready%20for%20the%20Dominator%20Pack%20takeover!" target="_blank" class="block w-full py-3 px-4 border border-accent text-accent text-center rounded-lg hover:bg-accent hover:text-primary transition font-bold">बिजनेस को 10x बढ़ाएं ↗️</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center relative">
-        <div class="absolute inset-0 bg-brand-dark/90"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 fade-in-section">
-            <div class="glass-card rounded-3xl p-8 md:p-12">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-brand-dark font-heading">अपने बिज़नेस को ग्रो करने के लिए बात करें</h2>
-                    <p class="text-gray-600 mt-2">नीचे दी गई जानकारी भरें, हमारी टीम आपको तुरंत संपर्क करेगी।</p>
-                </div>
+    <section class="bg-primary border-t border-gray-800">
+        <div class="marquee-container py-6">
+            <div class="marquee-content flex gap-8 px-4 items-center">
+                <!-- Duplicated for seamless loop -->
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> SS Service Ajmer</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Satyasam Classes Kekri</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Sarwar Computer Center</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Kunjika Fashion Kishangarh</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Friends Cafe Sarwar</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Rahul Academy Pushkar</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Akash Mewara CA</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Vishwas Telecome Kekri</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Vinayak Public School</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Adarsh Vidhya Mandir</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Balaji Event</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Ajmer Property</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Ajmer Doctor's</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Local Business</span>
                 
-                <!-- Custom Message Toast (Hidden by default) -->
-                <div id="formToast" class="hidden mb-6 p-4 rounded-lg bg-green-100 text-green-800 text-center font-semibold border border-green-200">
-                    <i class="fas fa-check-circle mr-2"></i> आपकी रिक्वेस्ट तैयार है! व्हाट्सएप खुल रहा है...
-                </div>
+                <!-- Repeat -->
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> SS Service Ajmer</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Satyasam Classes Kekri</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Sarwar Computer Center</span>
+            </div>
+            <div class="marquee-content flex gap-8 px-4 items-center" aria-hidden="true">
+                <!-- Double content to prevent gap in animation -->
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> SS Service Ajmer</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Satyasam Classes Kekri</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Sarwar Computer Center</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Kunjika Fashion Kishangarh</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Friends Cafe Sarwar</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Rahul Academy Pushkar</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Akash Mewara CA</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Vishwas Telecome Kekri</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Vinayak Public School</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Adarsh Vidhya Mandir</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Balaji Event</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Ajmer Property</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Ajmer Doctor's</span>
+                <span class="text-gray-400 font-semibold text-lg tracking-wider uppercase"><i class="fa-solid fa-star text-accent text-sm"></i> Local Business</span>
+            </div>
+        </div>
+    </section>
 
-                <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">आपका नाम *</label>
-                            <input type="text" id="clientName" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white/80" placeholder="e.g. Ramesh Kumar">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">मोबाइल नंबर *</label>
-                            <input type="tel" id="clientMobile" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white/80" placeholder="e.g. 9876543210">
-                        </div>
+    <section id="contact" class="py-20 bg-lightbg px-4">
+        <div class="container mx-auto max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row fade-in">
+            <div class="w-full md:w-2/5 bg-primary p-10 text-white flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-4">Let's Grow Together</h3>
+                <p class="text-gray-300 text-sm mb-8">अपनी डिटेल्स भरें, हमारी टीम आपसे तुरंत संपर्क करेगी।</p>
+                
+                <div class="space-y-4">
+                    <p class="flex items-center text-sm"><i class="fa-solid fa-phone text-accent mr-3"></i> +91 9799705368</p>
+                    <p class="flex items-center text-sm"><i class="fa-solid fa-envelope text-accent mr-3"></i> rudradigitalmarketings@gmail.com</p>
+                    <p class="flex items-center text-sm"><i class="fa-solid fa-location-dot text-accent mr-3"></i> Sarwar, Rajasthan, India</p>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-3/5 p-10">
+                <h3 class="text-2xl font-bold text-primary mb-6">Send Request 🚀</h3>
+                <form id="leadForm" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">आपका नाम (Name)</label>
+                        <input type="text" id="formName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Enter your name">
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">आपको कौनसी सर्विस चाहिए? *</label>
-                        <select id="clientService" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white/80">
-                            <option value="">-- सर्विस चुनें --</option>
-                            <option value="Website Design">वेबसाइट निर्माण / लैंडिंग पेज</option>
-                            <option value="Local SEO & Maps">लोकल SEO और गूगल मैप्स</option>
-                            <option value="Social Media Ads">सोशल मीडिया ऐड्स (Lead Generation)</option>
-                            <option value="Graphic & Video Editing">ग्राफ़िक डिज़ाइनिंग और वीडियो एडिटिंग</option>
-                            <option value="Full SEO">सर्च इंजन ऑप्टिमाइजेशन (Full SEO)</option>
-                            <option value="Complete Package">पूरा पैकेज (Startup / Growth / Dominator)</option>
-                            <option value="Other">अन्य</option>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">मोबाइल नंबर (Mobile Number)</label>
+                        <input type="tel" id="formMobile" required pattern="[0-9]{10}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none" placeholder="10 digit mobile number">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">ज़रूरत (Service Required)</label>
+                        <select id="formService" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none bg-white">
+                            <option value="Website Design">Website Design</option>
+                            <option value="Landing Page Design">Landing Page Design</option>
+                            <option value="Local SEO / Google Maps">Local SEO / Google Maps</option>
+                            <option value="Google & Meta Ads">Google & Meta Ads (Facebook/Insta)</option>
+                            <option value="Social Media Marketing">Social Media Marketing</option>
+                            <option value="Graphic Designing">Graphic Designing</option>
+                            <option value="Video Editing / Reels">Video Editing / Reels</option>
+                            <option value="Lead Generation">Lead Generation</option>
+                            <option value="Full Package Consultation">Full Package Consultation</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-full bg-brand-blue text-white font-bold text-lg py-4 rounded-xl hover:bg-blue-800 transition shadow-xl hover:shadow-2xl flex justify-center items-center gap-2">
-                        Send Request 🚀
+                    <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded-lg transition shadow-lg mt-4">
+                        Submit & Connect on WhatsApp <i class="fa-brands fa-whatsapp ml-2"></i>
                     </button>
-                    <p class="text-xs text-center text-gray-500 mt-4">क्लिक करते ही आपकी डिटेल्स हमारे WhatsApp (+919799705368) पर भेज दी जाएगी।</p>
+                    <p class="text-xs text-center text-gray-500 mt-2">Data is secure and directly sent to our email & WhatsApp.</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center fade-in-section">
-            <h2 class="text-3xl font-bold text-brand-dark font-heading">हमारे संतुष्ट क्लाइंट्स</h2>
-            <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
-        </div>
-        
-        <div class="marquee-container">
-            <div class="marquee-content">
-                <!-- Items list 1 -->
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ SS Service Ajmer</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Satyasam Classes Kekri</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Sarwar Computer Center</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Kunjika Fashion Kishangarh</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Friends Cafe Sarwar</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Rahul Academy Pushkar</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Akash Mewara CA</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Vishwas Telecome Kekri</div>
-                
-                <!-- Duplicated for seamless scrolling -->
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Vinayak Public School</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Adarsh Vidhya Mandir</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Balaji Event</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Ajmer Property</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Ajmer Doctors</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Kekri Market</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Jaipur Market</div>
-                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Local Business</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ebook" class="py-24 bg-[#0B1120] text-center relative border-t border-b border-brand-gold/30">
-        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-in-section">
-            <span class="inline-block py-1 px-3 rounded-full bg-brand-gold/20 text-brand-gold text-sm font-bold tracking-widest mb-6">🔥 MEGA OFFER LIVE NOW</span>
-            
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white font-heading leading-tight mb-8">
-                क्या आपको किताबें पढ़ने का शौक है?
-            </h2>
-            
-            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed font-light mb-10">
-                <span class="font-bold text-white">200+ बेस्ट सेलर ई-बुक्स (E-Books) का महा-बंडल</span> – मोटिवेशन, माइंड सेट, सफलता और बिज़नेस ग्रोथ। अपनी सोच और जीवन को बदलने वाली दुनिया की सबसे बेहतरीन किताबें अब एक साथ!
+    <section id="ebook" class="py-24 bg-gradient-to-r from-primary to-blue-900 text-center px-4">
+        <div class="container mx-auto max-w-3xl fade-in">
+            <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white mb-6 leading-tight">क्या आपको किताबें पढ़ने का शौक है?</h2>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed font-medium">
+                200+ बेस्ट सेलर ई-बुक्स (E-Books) का महा-बंडल – मोटिवेशन, माइंड सेट, सफलता और बिज़नेस ग्रोथ। अपनी सोच और जीवन को बदलने वाली दुनिया की सबसे बेहतरीन किताबें अब एक साथ!
             </p>
             
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
-                <div class="text-gray-400 text-2xl font-bold">
-                    कीमत: <del class="text-red-500">₹1999</del>
-                </div>
-                <div class="text-5xl md:text-6xl font-black text-brand-gold drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]">
-                    सिर्फ ₹49
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 mb-10 max-w-md mx-auto">
+                <p class="text-gray-300 text-lg mb-2">पूरे बंडल की कीमत:</p>
+                <div class="flex items-center justify-center gap-4">
+                    <span class="text-3xl text-gray-400 line-through decoration-red-500">₹1999</span>
+                    <span class="text-5xl font-bold text-accent">सिर्फ ₹49</span>
                 </div>
             </div>
-            
-            <a href="https://pages.razorpay.com/rudradigitalebooks" target="_blank" class="inline-block bg-brand-gold text-brand-dark text-xl md:text-2xl font-bold px-10 py-5 rounded-full hover:bg-yellow-400 hover:scale-105 transition transform shadow-[0_0_30px_rgba(245,158,11,0.6)]">
+
+            <a href="https://pages.razorpay.com/rudradigitalebooks" target="_blank" class="inline-block bg-accent hover:bg-accentHover text-primary font-black text-xl py-4 px-10 rounded-full transition transform hover:scale-110 shadow-[0_0_40px_rgba(245,158,11,0.6)] animate-bounce">
                 यहाँ क्लिक करें और डाउनलोड करें ⬇️
             </a>
         </div>
     </section>
 
-    <section id="store" class="py-20 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-section">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">Rudra Recommends (Amazon Store)</h2>
-                <p class="mt-4 text-gray-600">आपके बिज़नेस और प्रोडक्टिविटी के लिए बेस्ट गैजेट्स और किताबें</p>
-                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
-                <!-- JS script logic note -->
-                <p class="text-xs text-gray-400 mt-4"><i class="fas fa-sync fa-spin mr-1"></i> Items refresh every 24 hours automatically.</p>
+    <section id="store" class="py-20 bg-white px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">Rudra's <span class="text-accent">Recommendations</span></h2>
+                <p class="text-gray-600">बेस्ट टूल्स, गैजेट्स और किताबें जो आपके बिज़नेस और लाइफ को बेहतर बनाएंगे।</p>
+                <p class="text-xs text-green-600 mt-2 font-semibold"><i class="fa-solid fa-bolt"></i> Items refresh every 24 hours</p>
             </div>
 
             <!-- Tabs -->
-            <div class="flex justify-center mb-10 overflow-x-auto no-scrollbar fade-in-section">
-                <div class="flex space-x-2 bg-gray-200 p-1 rounded-xl">
-                    <button onclick="openTab(event, 'tab-gadgets')" class="tab-btn active bg-white shadow text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Gadgets</button>
-                    <button onclick="openTab(event, 'tab-laptops')" class="tab-btn text-gray-600 hover:text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Laptops</button>
-                    <button onclick="openTab(event, 'tab-mobiles')" class="tab-btn text-gray-600 hover:text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Mobiles</button>
-                    <button onclick="openTab(event, 'tab-books')" class="tab-btn text-gray-600 hover:text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Books (Hindi)</button>
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 fade-in">
+                <button class="tab-btn active px-6 py-2 rounded-full font-bold bg-primary text-white transition" data-target="gadgets">Gadgets</button>
+                <button class="tab-btn px-6 py-2 rounded-full font-bold bg-gray-200 text-gray-700 hover:bg-gray-300 transition" data-target="laptops">Laptops</button>
+                <button class="tab-btn px-6 py-2 rounded-full font-bold bg-gray-200 text-gray-700 hover:bg-gray-300 transition" data-target="mobiles">Mobiles</button>
+                <button class="tab-btn px-6 py-2 rounded-full font-bold bg-gray-200 text-gray-700 hover:bg-gray-300 transition" data-target="books">Hindi Books</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="gadgets" class="tab-content grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Gadget 1 (Targeted) -->
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/400x400/ffffff/0a192f?text=Syrotech+Tripod" alt="Syrotech Tripod" class="w-full h-32 object-cover rounded mb-3 border">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Syrotech Tripod for Mobile/Camera</h4>
+                    <p class="text-accent font-bold my-2">Budget Choice</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                <!-- Generated Gadgets -->
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Ring+Light" alt="Ring Light" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">10" LED Ring Light with Stand</h4><p class="text-accent font-bold my-2">Best Seller</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Wireless+Mic" alt="Wireless Mic" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Wireless Collar Mic for Creators</h4><p class="text-accent font-bold my-2">Top Rated</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Green+Screen" alt="Green Screen" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Professional Green Screen Backdrop</h4><p class="text-accent font-bold my-2">Recommended</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=RGB+Lights" alt="RGB Lights" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">RGB Video Light for Background</h4><p class="text-accent font-bold my-2">Trending</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Power+Bank" alt="Power Bank" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">20000mAh Fast Charge Powerbank</h4><p class="text-accent font-bold my-2">Must Have</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+            </div>
+
+            <div id="laptops" class="tab-content hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Laptop 1 (Targeted) -->
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/400x400/ffffff/0a192f?text=HP+15s" alt="HP 15s" class="w-full h-32 object-cover rounded mb-3 border">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">HP 15s Ryzen 3 (8GB/512GB)</h4>
+                    <p class="text-accent font-bold my-2">Budget Choice</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                 <!-- Generated Laptops -->
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Dell+Inspiron" alt="Dell" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Dell Inspiron 15 Core i3</h4><p class="text-accent font-bold my-2">Office Use</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Lenovo+IdeaPad" alt="Lenovo" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Lenovo IdeaPad Slim 3</h4><p class="text-accent font-bold my-2">Lightweight</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Acer+Aspire" alt="Acer" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Acer Aspire 5 Intel Core i5</h4><p class="text-accent font-bold my-2">Performance</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=ASUS+VivoBook" alt="ASUS" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">ASUS VivoBook 15 OLED</h4><p class="text-accent font-bold my-2">Best Display</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=MacBook+Air" alt="MacBook" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Apple MacBook Air M1</h4><p class="text-accent font-bold my-2">Premium</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+            </div>
+
+            <div id="mobiles" class="tab-content hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Mobile 1 (Targeted) -->
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/400x400/ffffff/0a192f?text=Moto+G32" alt="Moto G32" class="w-full h-32 object-cover rounded mb-3 border">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Moto G32</h4>
+                    <p class="text-accent font-bold my-2">₹9,999</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                 <!-- Generated Mobiles -->
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Redmi+12" alt="Redmi" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Redmi 12 5G</h4><p class="text-accent font-bold my-2">Top Seller</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Samsung+M14" alt="Samsung" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">Samsung Galaxy M14 5G</h4><p class="text-accent font-bold my-2">Big Battery</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Realme+Narzo" alt="Realme" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">realme narzo N53</h4><p class="text-accent font-bold my-2">Slim Design</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=Poco+C55" alt="Poco" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">POCO C55 (Budget)</h4><p class="text-accent font-bold my-2">Value Pick</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between"><img src="https://placehold.co/400x400/ffffff/0a192f?text=OnePlus+Nord" alt="OnePlus" class="w-full h-32 object-cover rounded mb-3 border"><h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">OnePlus Nord CE 3 Lite</h4><p class="text-accent font-bold my-2">Premium</p><a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a></div>
+            </div>
+
+            <div id="books" class="tab-content hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- Exact Books Requested -->
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/300x450/0a192f/f59e0b?text=The+Secret" alt="The Secret" class="w-full h-40 object-cover rounded mb-3 shadow">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">द सीक्रेट (The Secret - Hindi)</h4>
+                    <p class="text-primary font-bold my-2">₹350</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/300x450/0a192f/f59e0b?text=Think+Grow+Rich" alt="Think & Grow Rich" class="w-full h-40 object-cover rounded mb-3 shadow">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">सोचिए और अमीर बनिए (Think and Grow Rich)</h4>
+                    <p class="text-primary font-bold my-2">₹149</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/300x450/0a192f/f59e0b?text=Rich+Dad+Poor+Dad" alt="Rich Dad Poor Dad" class="w-full h-40 object-cover rounded mb-3 shadow">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">रिच डैड पुअर डैड (Rich Dad Poor Dad)</h4>
+                    <p class="text-primary font-bold my-2">₹199</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/300x450/0a192f/f59e0b?text=Chanakya+Neeti" alt="Chanakya Neeti" class="w-full h-40 object-cover rounded mb-3 shadow">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">चाणक्य नीति (Chanakya Neeti)</h4>
+                    <p class="text-primary font-bold my-2">₹120</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/300x450/0a192f/f59e0b?text=Atomic+Habits" alt="Atomic Habits" class="w-full h-40 object-cover rounded mb-3 shadow">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">एटॉमिक हैबिट्स (Atomic Habits - Hindi)</h4>
+                    <p class="text-primary font-bold my-2">₹250</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
+                </div>
+                <div class="border rounded-lg p-3 text-center hover:shadow-lg transition bg-lightbg flex flex-col justify-between">
+                    <img src="https://placehold.co/300x450/0a192f/f59e0b?text=Jeet+Aapki" alt="Jeet Aapki" class="w-full h-40 object-cover rounded mb-3 shadow">
+                    <h4 class="text-sm font-bold text-gray-800 line-clamp-2 h-10">जीत आपकी (Jeet Aapki by Shiv Khera)</h4>
+                    <p class="text-primary font-bold my-2">₹220</p>
+                    <a href="https://amzn.to/4oKORTC" target="_blank" class="block bg-primary text-white text-xs py-2 rounded mt-auto hover:bg-secondary">Buy on Amazon</a>
                 </div>
             </div>
-
-            <!-- Tab Content: Gadgets -->
-            <div id="tab-gadgets" class="tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <!-- Using realistic placehold.co images for placeholders to prevent broken images -->
-                <script>
-                    const amazonLink = "https://amzn.to/4oKORTC"; // vsjadana0e-21
-                    
-                    function createProductCard(title, cat, price, imgText) {
-                        const imgUrl = `https://placehold.co/400x400/ffffff/1E3A8A?text=${encodeURIComponent(imgText)}`;
-                        return `
-                        <div class="bg-white rounded-xl shadow p-4 flex flex-col hover:shadow-lg transition">
-                            <img src="${imgUrl}" alt="${title}" class="w-full h-32 object-contain mb-4 rounded" onerror="this.src='https://placehold.co/400x400/eee/999?text=Image+Not+Found'">
-                            <span class="text-xs text-gray-500 mb-1">${cat}</span>
-                            <h4 class="font-bold text-sm mb-2 flex-grow">${title}</h4>
-                            <div class="font-bold text-brand-blue mb-3">${price}</div>
-                            <a href="${amazonLink}" target="_blank" class="w-full text-center bg-yellow-400 text-black py-2 rounded-lg text-sm font-bold hover:bg-yellow-500 transition">Buy on Amazon</a>
-                        </div>`;
-                    }
-                </script>
-                
-                <div id="gadgets-container" class="contents"></div>
-            </div>
-
-            <!-- Tab Content: Laptops -->
-            <div id="tab-laptops" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div id="laptops-container" class="contents"></div>
-            </div>
-
-            <!-- Tab Content: Mobiles -->
-            <div id="tab-mobiles" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div id="mobiles-container" class="contents"></div>
-            </div>
-
-            <!-- Tab Content: Books -->
-            <div id="tab-books" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div id="books-container" class="contents"></div>
-            </div>
-
         </div>
     </section>
 
-    <footer class="bg-brand-dark text-white pt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-                
-                <!-- About -->
-                <div>
-                    <h3 class="text-2xl font-bold font-heading tracking-wider mb-6">
-                        Rudra<span class="text-brand-gold">Digital</span>
-                    </h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        We help small businesses in Rajasthan and across India grow online with affordable and high-quality web design, SEO, and lead generation services.
+    <footer class="bg-primary pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Branding -->
+                <div class="col-span-1 lg:col-span-1">
+                    <a href="#" class="text-2xl font-heading font-bold text-white flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-chart-line text-accent"></i> Rudra Digital
+                    </a>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Best web development, local SEO, and performance marketing agency. Helping small businesses scale online effortlessly.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-youtube"></i></a>
-                        <a href="https://wa.me/919799705368" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-whatsapp"></i></a>
+                    <!-- Social Links -->
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://wa.me/919799705368" target="_blank" class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-accent transition"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3 text-gray-400 text-sm">
-                        <li><a href="#services" class="hover:text-brand-gold transition">Our Services</a></li>
-                        <li><a href="#packages" class="hover:text-brand-gold transition">Pricing Packages</a></li>
-                        <li><a href="#ebook" class="hover:text-brand-gold transition">E-Book Offer</a></li>
-                        <li><a href="#store" class="hover:text-brand-gold transition">Amazon Affiliate Store</a></li>
+                    <h4 class="text-white font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#services" class="hover:text-accent transition">Our Services</a></li>
+                        <li><a href="#packages" class="hover:text-accent transition">Pricing Packages</a></li>
+                        <li><a href="#ebook" class="hover:text-accent transition">E-book Bundle</a></li>
+                        <li><a href="#store" class="hover:text-accent transition">Affiliate Store</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition">Contact Us</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
+                <!-- Areas -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Contact Us</h4>
-                    <ul class="space-y-4 text-gray-400 text-sm">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt mt-1 text-brand-gold"></i>
-                            <span>Sarwar, Rajasthan, India<br>(Service Area: All Over India)</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-phone-alt text-brand-gold"></i>
-                            <a href="tel:+919799705368" class="hover:text-white transition">+91 9799705368</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-brand-gold"></i>
-                            <a href="mailto:rudradigitalmarketings@gmail.com" class="hover:text-white transition">rudradigitalmarketings@gmail.com</a>
-                        </li>
+                    <h4 class="text-white font-bold text-lg mb-4">Service Areas</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Kekri & Sarwar</li>
+                        <li>Ajmer & Kishangarh</li>
+                        <li>Sawar & Bhinai</li>
+                        <li>Nasirabad & Bijaynagar</li>
+                        <li>All Over India (Online)</li>
                     </ul>
                 </div>
 
-                <!-- Google Map -->
+                <!-- Location Map -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Our Location</h4>
-                    <div class="w-full h-40 rounded-lg overflow-hidden border border-white/20">
-                        <!-- Embedded Google Map using a standard embed format -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114092.34863677443!2d74.9392233!3d26.0664402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c21e6be794a0d%3A0xc64e16d0034a6c4c!2sSarwar%2C%20Rajasthan%20305403!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h4 class="text-white font-bold text-lg mb-4">Our Location</h4>
+                    <div class="w-full h-32 rounded-lg overflow-hidden border border-gray-700">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114389.26127391917!2d74.91263884394018!3d26.04690623253755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396be2eb7ef94c65%3A0xc3e5c94e771d9d95!2sSarwar%2C%20Rajasthan%20305403!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
+                    <p class="text-gray-400 text-xs mt-2"><i class="fa-solid fa-location-dot text-accent mr-1"></i> Sarwar, Rajasthan, India</p>
                 </div>
             </div>
-        </div>
-        
-        <div class="border-t border-white/10 py-6 text-center text-sm text-gray-500">
-            <p>&copy; 2026 Rudra Digital Marketings. Call/WhatsApp: +91 9799705368. All rights reserved.</p>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+                <p>&copy; 2026 Rudra Digital Marketings. All rights reserved.</p>
+                <p>Support: +91 9799705368 | rudradigitalmarketings@gmail.com</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // 1. Intersection Observer for Scroll Fade-In Animations
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Intersection Observer for Scroll Fade-In Animations
+            const fadeElements = document.querySelectorAll('.fade-in');
             const observerOptions = {
                 root: null,
-                rootMargin: '0px',
-                threshold: 0.15
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
+                        entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.fade-in-section').forEach((section) => {
-                observer.observe(section);
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Affiliate Store Tabs Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active styles from all
+                    tabBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white');
+                        b.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    tabContents.forEach(c => c.classList.add('hidden'));
+
+                    // Add active styles to clicked
+                    btn.classList.remove('bg-gray-200', 'text-gray-700');
+                    btn.classList.add('bg-primary', 'text-white');
+                    
+                    // Show target content
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
             });
 
-            // 2. Populate Store Products Dynamically
-            const gadgets = [
-                {t: "Syrotech Tripod for Mobile/Camera", c: "Gadgets", p: "Best Seller", img: "Syrotech Tripod"},
-                {t: "Wireless Mouse Pro", c: "Gadgets", p: "₹499", img: "Wireless Mouse"},
-                {t: "Bluetooth Speaker bass+", c: "Gadgets", p: "₹899", img: "Bluetooth Speaker"},
-                {t: "10000mAh Power Bank", c: "Gadgets", p: "₹999", img: "Power Bank"},
-                {t: "Smartwatch Fitness Band", c: "Gadgets", p: "₹1,299", img: "Smartwatch"},
-                {t: "TWS Earbuds ANC", c: "Gadgets", p: "₹1,499", img: "TWS Earbuds"}
-            ];
-            
-            const laptops = [
-                {t: "HP 15s Ryzen 3 (8GB/512GB)", c: "Laptops", p: "Budget Choice", img: "HP 15s Ryzen 3"},
-                {t: "Dell Inspiron 15", c: "Laptops", p: "₹38,990", img: "Dell Inspiron"},
-                {t: "Lenovo IdeaPad Slim 3", c: "Laptops", p: "₹35,990", img: "Lenovo IdeaPad"},
-                {t: "ASUS VivoBook 15", c: "Laptops", p: "₹33,990", img: "ASUS VivoBook"},
-                {t: "Acer Aspire Lite", c: "Laptops", p: "₹31,990", img: "Acer Aspire"},
-                {t: "Apple MacBook Air M1", c: "Laptops", p: "Premium", img: "MacBook Air"}
-            ];
+            // Smart Lead Form Submission Logic
+            const leadForm = document.getElementById('leadForm');
+            leadForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent page reload
+                
+                const name = document.getElementById('formName').value;
+                const mobile = document.getElementById('formMobile').value;
+                const service = document.getElementById('formService').value;
 
-            const mobiles = [
-                {t: "Moto G32", c: "Mobiles", p: "₹9,999", img: "Moto G32"},
-                {t: "Samsung Galaxy M14", c: "Mobiles", p: "₹12,490", img: "Galaxy M14"},
-                {t: "Redmi 12 5G", c: "Mobiles", p: "₹11,999", img: "Redmi 12"},
-                {t: "Realme C55", c: "Mobiles", p: "₹10,999", img: "Realme C55"},
-                {t: "Poco M5", c: "Mobiles", p: "₹8,999", img: "Poco M5"},
-                {t: "OnePlus Nord CE 3 Lite", c: "Mobiles", p: "₹19,999", img: "OnePlus Nord"}
-            ];
+                // 1. Build WhatsApp Message
+                const waText = encodeURIComponent(`Hello Rudra Digital Marketings,\n\n*New Lead Request*\nName: ${name}\nMobile: ${mobile}\nService Required: ${service}\n\nPlease contact me for further details.`);
+                const waUrl = `https://wa.me/919799705368?text=${waText}`;
 
-            const books = [
-                {t: "द सीक्रेट (The Secret - Hindi)", c: "Books", p: "₹350", img: "The Secret"},
-                {t: "सोचिए और अमीर बनिए", c: "Books", p: "₹149", img: "Think & Grow Rich"},
-                {t: "रिच डैड पुअर डैड", c: "Books", p: "₹199", img: "Rich Dad Poor Dad"},
-                {t: "चाणक्य नीति", c: "Books", p: "₹120", img: "Chanakya Neeti"},
-                {t: "एटॉमिक हैबिट्स", c: "Books", p: "₹250", img: "Atomic Habits"},
-                {t: "जीत आपकी (Shiv Khera)", c: "Books", p: "₹220", img: "Jeet Aapki"}
-            ];
+                // 2. Build Email Mailto Link (Fallback/Secondary action)
+                const mailSubject = encodeURIComponent(`New Lead Request from ${name}`);
+                const mailBody = encodeURIComponent(`Name: ${name}\nMobile: ${mobile}\nService Required: ${service}\n\nClient has initiated contact via website form.`);
+                const mailUrl = `mailto:rudradigitalmarketings@gmail.com?subject=${mailSubject}&body=${mailBody}`;
 
-            document.getElementById('gadgets-container').innerHTML = gadgets.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
-            document.getElementById('laptops-container').innerHTML = laptops.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
-            document.getElementById('mobiles-container').innerHTML = mobiles.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
-            document.getElementById('books-container').innerHTML = books.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
-        });
-
-        // 3. Tab Switching Logic for Store
-        function openTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.add("hidden");
-            }
-            
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("bg-white", "shadow", "text-brand-dark");
-                tablinks[i].classList.add("text-gray-600");
-            }
-            
-            document.getElementById(tabName).classList.remove("hidden");
-            evt.currentTarget.classList.add("bg-white", "shadow", "text-brand-dark");
-            evt.currentTarget.classList.remove("text-gray-600");
-        }
-
-        // 4. Form Submit Logic (WhatsApp + Email)
-        function handleFormSubmit(event) {
-            event.preventDefault(); // Stop page reload
-
-            const name = document.getElementById('clientName').value;
-            const mobile = document.getElementById('clientMobile').value;
-            const service = document.getElementById('clientService').value;
-
-            if(!name || !mobile || !service) return;
-
-            // Construct WhatsApp Message
-            const waText = `Hello Rudra Digital Marketings,%0A%0AI want to grow my business. Here are my details:%0A*Name:* ${name}%0A*Mobile:* ${mobile}%0A*Service Required:* ${service}%0A%0APlease contact me.`;
-            const waUrl = `https://wa.me/919799705368?text=${waText}`;
-
-            // Trigger silent Mailto in background (Browsers might block opening two tabs at once, so we focus on WA first)
-            const mailSubject = encodeURIComponent(`New Lead from Website - ${name}`);
-            const mailBody = encodeURIComponent(`Name: ${name}\nMobile: ${mobile}\nService: ${service}`);
-            const mailUrl = `mailto:rudradigitalmarketings@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-            
-            // Show custom toast message instead of alert()
-            const toast = document.getElementById('formToast');
-            toast.classList.remove('hidden');
-            
-            setTimeout(() => {
-                // Open Email client slightly before WhatsApp to ensure both trigger
-                window.location.href = mailUrl;
+                // Notify User
+                const btn = leadForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
                 
                 setTimeout(() => {
                     // Open WhatsApp in new tab
                     window.open(waUrl, '_blank');
                     
-                    // Reset Form
-                    document.getElementById('leadForm').reset();
-                    toast.classList.add('hidden');
-                }, 500);
-            }, 1000);
-        }
+                    // Trigger mail client as fallback
+                    window.location.href = mailUrl;
+                    
+                    // Reset form
+                    leadForm.reset();
+                    btn.innerHTML = '<i class="fa-solid fa-check text-green-400"></i> Sent Successfully!';
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                    }, 3000);
+                }, 800);
+            });
+        });
     </script>
 </body>
 </html>
