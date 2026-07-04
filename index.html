@@ -1,1016 +1,705 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rudra Digital Marketings | Digital Marketing Agency in Kekri & Ajmer</title>
-    <meta name="description" content="Best Digital Marketing Agency in Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti & Bandanwara. Get Leads via SEO, Web Design & Google Ads.">
-    
+    <meta name="description" content="Rudra Digital Marketings - Best Web Design, SEO, and Digital Marketing Agency for Small Businesses in Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti, Bandanwara.">
+    <meta name="keywords" content="Website Design, Local SEO, Social Media Ads, Video Editing, Digital Marketing Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti, Bandanwara">
+    <meta name="author" content="Rudra Digital Marketings">
+    <title>Rudra Digital Marketings | Premium Digital Agency</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FontAwesome Icons (Replaced Lucide to fix import errors) -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- React & ReactDOM -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    
-    <!-- Babel (For JSX compilation in browser) -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B1120',
+                            blue: '#1E3A8A',
+                            gold: '#F59E0B',
+                            light: '#F8FAFC',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-      html { scroll-behavior: smooth; }
-      @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-      .animate-marquee { animation: marquee 25s linear infinite; }
-      @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-      .animate-fade-in { animation: fade-in 0.4s ease-out forwards; }
-      ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: #000; }
-      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-      ::-webkit-scrollbar-thumb:hover { background: #E50914; }
-    </style>
-</head>
-<body class="bg-[#020617] text-slate-50 font-sans selection:bg-[#E50914] selection:text-white overflow-x-hidden">
-    <div id="root"></div>
-
-    <!-- No import statements allowed inside here -->
-    <script type="text/babel" data-presets="react,env">
-        const { useState, useEffect, useRef, createContext, useContext, useMemo } = React;
-
-        // Language Context
-        const LanguageContext = createContext();
-
-        const CONTACT = {
-          phone: '+91 9799705368',
-          waNumber: '919799705368',
-          email: 'rudradigitalmarketings@gmail.com',
-          address: 'Sarwar, Rajasthan, India',
-          youtube: 'https://www.youtube.com/@rudradigitalmarketings',
-          mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114312.28543714936!2d75.0!3d26.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396beaa130495f51%3A0xc0fbdb1bd0c29377!2sSarwar%2C%20Rajasthan%20305403!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin'
-        };
-
-        const translations = {
-          en: {
-            navServices: 'Services',
-            navProcess: 'Process',
-            navEbook: 'E-Books',
-            navStore: 'Store',
-            navContact: 'Contact',
-            getProposal: 'Get Proposal',
-            heroBadge: "Top Local Digital Growth Agency",
-            heroTitle1: "Without Online Promotion,",
-            heroTitle2: "How Will Your Business Grow?",
-            heroSub: "We help small business owners in Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti & Bandanwara grow their business online.",
-            btnConsult: "Get Free Consultation",
-            btnWa: "WhatsApp Now",
-            statsProjects: "Projects Delivered",
-            statsClients: "Active Clients",
-            statsRevenue: "Client Revenue Generated",
-            statsRetention: "Client Retention Rate",
-            indTitle: "Empowering Small Businesses & Local Brands",
-            srvBadge: "Our Core Services",
-            srvTitle: "Complete Business Growth Solutions",
-            srvSub: "We deploy full-funnel marketing strategies designed to convert clicks into paying customers in your local area.",
-            processBadge: "How We Work",
-            processTitle: "Our Proven Growth System",
-            testiBadge: "Client Success Stories",
-            testiTitle: "Trusted by Local Business Owners",
-            ebookBadge: "Limited Time Offer",
-            ebookTitle: "Do you love reading books?",
-            ebookSub: "The Ultimate Bundle of 200+ Best Seller E-Books – Motivation, Mindset, Success, and Business Growth.",
-            ebookPriceLabel: "Bundle Price:",
-            ebookPriceCut: "₹1999",
-            ebookPriceNow: "Only ₹49",
-            ebookBtn: "Click Here to Download",
-            storeBadge: "Our Recommendations",
-            storeTitle: "Rudra Premium Store",
-            storeSub: "Best budget laptops, gadgets, and books for local business owners & creators.",
-            btnBuy: "Buy on Amazon",
-            contactBadge: "Let's Scale Your Business",
-            contactSub: "Stop losing local customers to your competitors. Book your free strategy session today.",
-            contactFormTitle: "Request a Custom Proposal",
-            formName: "Your Name *",
-            formPhone: "Phone Number *",
-            formBiz: "Business Name *",
-            formLocation: "Location *",
-            formEmail: "Email Address",
-            formService: "Service Required *",
-            formMsg: "Your Goals / Message",
-            formSubmit: "Submit & Get Free Strategy",
-            formSelectService: "Select a Service"
-          },
-          hi: {
-            navServices: 'सेवाएं',
-            navProcess: 'प्रक्रिया',
-            navEbook: 'ई-बुक्स',
-            navStore: 'स्टोर',
-            navContact: 'संपर्क',
-            getProposal: 'प्रपोज़ल प्राप्त करें',
-            heroBadge: "नंबर 1 लोकल डिजिटल ग्रोथ एजेंसी",
-            heroTitle1: "ऑनलाइन प्रमोशन के बिना,",
-            heroTitle2: "आपका बिज़नेस कैसे बढ़ेगा?",
-            heroSub: "हम केकड़ी, सरवाड़, अजमेर, सावर, भिनाय, बिजयनगर, नसीराबाद, तंतोती और बांदनवाड़ा के स्मॉल बिज़नेस ओनर्स को ऑनलाइन बढ़ाने में मदद करते हैं।",
-            btnConsult: "फ्री कंसल्टेशन लें",
-            btnWa: "व्हाट्सएप करें",
-            statsProjects: "प्रोजेक्ट्स पूरे किए",
-            statsClients: "सक्रिय क्लाइंट्स",
-            statsRevenue: "क्लाइंट रेवेन्यू बनाया",
-            statsRetention: "क्लाइंट रिटेंशन रेट",
-            indTitle: "लोकल बिज़नेस और ब्रांड्स को सशक्त बनाना",
-            srvBadge: "हमारी मुख्य सेवाएं",
-            srvTitle: "संपूर्ण बिज़नेस ग्रोथ समाधान",
-            srvSub: "हम आपके लोकल एरिया में ग्राहकों को आकर्षित करने और बिक्री बढ़ाने के लिए बेहतरीन मार्केटिंग रणनीतियों का उपयोग करते हैं।",
-            processBadge: "हम कैसे काम करते हैं",
-            processTitle: "हमारी प्रूवन ग्रोथ प्रणाली",
-            testiBadge: "क्लाइंट सफलता की कहानियाँ",
-            testiTitle: "लोकल बिज़नेस ओनर्स का भरोसा",
-            ebookBadge: "सीमित समय का ऑफर",
-            ebookTitle: "क्या आपको किताबें पढ़ने का शौक है?",
-            ebookSub: "200+ बेस्ट सेलर ई-बुक्स का महा-बंडल – मोटिवेशन, माइंड सेट, सफलता और बिज़नेस ग्रोथ।",
-            ebookPriceLabel: "पूरे बंडल की कीमत:",
-            ebookPriceCut: "₹1999",
-            ebookPriceNow: "सिर्फ ₹49",
-            ebookBtn: "यहाँ क्लिक करें और डाउनलोड करें",
-            storeBadge: "हमारी सिफारिशें",
-            storeTitle: "रुद्रा प्रीमियम स्टोर",
-            storeSub: "लोकल बिज़नेस ओनर्स और क्रिएटर्स के लिए बेहतरीन बजट लैपटॉप, गैजेट्स और किताबें।",
-            btnBuy: "Amazon से खरीदें",
-            contactBadge: "चलिए आपके बिज़नेस को बढ़ाएं",
-            contactSub: "अपने ग्राहकों को प्रतिस्पर्धियों के पास जाने से रोकें। आज ही अपना फ्री स्ट्रेटेजी सेशन बुक करें।",
-            contactFormTitle: "कस्टम प्रपोज़ल का अनुरोध करें",
-            formName: "आपका नाम *",
-            formPhone: "फोन नंबर *",
-            formBiz: "बिज़नेस का नाम *",
-            formLocation: "लोकेशन (शहर/गाँव) *",
-            formEmail: "ईमेल एड्रेस",
-            formService: "आवश्यक सेवा *",
-            formMsg: "आपके लक्ष्य / संदेश",
-            formSubmit: "सबमिट करें और फ्री स्ट्रेटेजी पाएं",
-            formSelectService: "एक सेवा चुनें"
-          }
-        };
-
-        const SERVICES_DATA = [
-          { icon: <i className="fa-solid fa-display text-[#E50914] text-2xl"></i>, title: 'Performance Marketing', desc: 'Data-driven Google & Meta ads to maximize your ROI.', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
-          { icon: <i className="fa-solid fa-magnifying-glass text-[#FF3B30] text-2xl"></i>, title: 'Search Engine Optimization', desc: 'Dominate search rankings in Ajmer & local areas.', img: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?w=600&q=80' },
-          { icon: <i className="fa-solid fa-layer-group text-[#E50914] text-2xl"></i>, title: 'Premium Web Design', desc: 'High-converting, fast landing pages and websites.', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80' },
-          { icon: <i className="fa-solid fa-palette text-[#FF3B30] text-2xl"></i>, title: 'Graphic Design', desc: 'Premium, eye-catching creatives for your brand.', img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80' },
-          { icon: <i className="fa-solid fa-bullseye text-[#E50914] text-2xl"></i>, title: 'Social Media Ads', desc: 'Instagram, Facebook, Google & YouTube Ads with 100% Lead Generation.', img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80' },
-          { icon: <i className="fa-solid fa-film text-[#FF3B30] text-2xl"></i>, title: 'Video Editing', desc: 'High-retention editing for YouTube & Reels.', img: 'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?w=600&q=80' },
-        ];
-
-        const TESTIMONIALS_DATA = [
-          { name: "SS Service Ajmer", review: "Rudra Digital completely transformed our online presence. Our leads doubled within a month!" },
-          { name: "Satyasam Classes Kekri", review: "Best digital marketing agency! Their FB ads strategy brought so many new student admissions." },
-          { name: "Sarwar Computer Center", review: "Highly professional team. Website design and local SEO helped us rank on top of Google." },
-          { name: "Kunjika Fashion Kishangarh", review: "Their performance marketing is top-notch. Our sales skyrocketed during the festive season." },
-          { name: "Rahul Academy Pushkar", review: "Exceptional video editing and social media management. Highly recommend their services." },
-          { name: "Akash Mewara CA", review: "Very professional lead generation system. Getting high-quality clients consistently." },
-          { name: "Vishwas Telecome Kekri", review: "Great ROI on Google Ads. They really know how to target the right local audience." },
-          { name: "Vinayak Public School", review: "Helped us build a strong brand presence. The premium web design looks fantastic!" },
-          { name: "Adarsh Vidhya Mandir", review: "Excellent support and execution. Our school's online visibility improved drastically." },
-          { name: "Balaji Event", review: "Stunning graphic design and promo videos. Rudra Digital is our go-to marketing partner." },
-          { name: "Ajmer Proprty", review: "Real estate leads are usually tough, but their targeted ad campaigns brought genuine buyers." },
-          { name: "Ajmer Doctor's", review: "Local SEO experts! Patient inquiries have increased significantly since we hired them." }
-        ];
-
-        const AMAZON_AFFILIATE_TAG = "vsjadana0e-21";
-        const STORE_DATA = {
-          Gadgets: [
-            { title: "boAt Airdopes 141 (Wireless Earbuds)", price: "₹1,299", desc: "Best budget true wireless earbuds with deep bass.", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80", link: `https://www.amazon.in/dp/B09N3ZNHTY?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Noise Pulse 2 Smartwatch", price: "₹1,499", desc: "Feature-packed smartwatch with health tracking.", img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&q=80", link: `https://www.amazon.in/dp/B0B5LVS732?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "MI 10000mAh Power Bank", price: "₹1,299", desc: "Fast charging portable power bank.", img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&q=80", link: `https://www.amazon.in/dp/B08HV83HL3?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "JBL Go 2 Bluetooth Speaker", price: "₹1,799", desc: "Portable waterproof Bluetooth speaker.", img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80", link: `https://www.amazon.in/dp/B07D7V3MD7?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Digitek 18 inch Ring Light", price: "₹2,199", desc: "Professional ring light for content creators.", img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80", link: `https://www.amazon.in/dp/B07MDBJ45P?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Syrotech Tripod for Mobile/Camera", price: "₹499", desc: "Sturdy tripod stand for shooting videos.", img: "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=400&q=80", link: `https://www.amazon.in/dp/B07P8LDZJ5?tag=${AMAZON_AFFILIATE_TAG}` }
-          ],
-          Laptops: [
-            { title: "HP 15s Ryzen 3 (8GB/512GB)", price: "₹32,990", desc: "Fast & reliable laptop for daily business tasks.", img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&q=80", link: `https://www.amazon.in/dp/B09MH9M5CV?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Lenovo IdeaPad Slim 3", price: "₹34,990", desc: "Thin and light laptop for office work.", img: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&q=80", link: `https://www.amazon.in/dp/B09Y5ZXXH1?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "ASUS VivoBook 15 (Core i3)", price: "₹30,990", desc: "Budget laptop with clear display.", img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&q=80", link: `https://www.amazon.in/dp/B09Y67B4R8?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Acer Aspire Lite (Core i3)", price: "₹29,990", desc: "Affordable laptop for students & business.", img: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&q=80", link: `https://www.amazon.in/dp/B0C43D7B1C?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Honor MagicBook X14", price: "₹38,990", desc: "Premium metal body laptop with fast charging.", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80", link: `https://www.amazon.in/dp/B0C39XNTMD?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Dell Inspiron 3511 (Core i3)", price: "₹36,990", desc: "Durable Dell laptop for long working hours.", img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&q=80", link: `https://www.amazon.in/dp/B09Y687K9W?tag=${AMAZON_AFFILIATE_TAG}` }
-          ],
-          Mobiles: [
-            { title: "Redmi 12 5G", price: "₹11,999", desc: "Budget 5G smartphone with great battery.", img: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80", link: `https://www.amazon.in/dp/B0C74P7N7P?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Samsung Galaxy M14 5G", price: "₹12,490", desc: "Reliable Samsung phone with 6000mAh battery.", img: "https://images.unsplash.com/photo-1610945265064-3234587a3aa3?w=400&q=80", link: `https://www.amazon.in/dp/B0BZCQ79P2?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Realme C55", price: "₹10,999", desc: "Stylish phone with fast charging & good camera.", img: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80", link: `https://www.amazon.in/dp/B0C1Z44YYT?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "POCO M6 Pro 5G", price: "₹10,999", desc: "High-performance budget 5G phone.", img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80", link: `https://www.amazon.in/dp/B0CB941864?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Moto G32", price: "₹9,999", desc: "Stock Android experience with smooth display.", img: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&q=80", link: `https://www.amazon.in/dp/B0B8S8GGFZ?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "Vivo T2x 5G", price: "₹12,999", desc: "Affordable 5G phone with excellent camera.", img: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&q=80", link: `https://www.amazon.in/dp/B0C3CV1Y7B?tag=${AMAZON_AFFILIATE_TAG}` }
-          ],
-          Books: [
-            { title: "रिच डैड पुअर डैड (Rich Dad Poor Dad)", price: "₹199", desc: "Financial education & wealth creation classic.", img: "https://images.unsplash.com/photo-1554774853-719586f82d77?w=400&q=80", link: `https://www.amazon.in/dp/9386841703?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "सोचिए और अमीर बनिए (Think and Grow Rich)", price: "₹149", desc: "Mindset and success principles for business.", img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400&q=80", link: `https://www.amazon.in/dp/8186775607?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "एटॉमिक हैबिट्स (Atomic Habits - Hindi)", price: "₹250", desc: "Learn to build good habits and break bad ones.", img: "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=400&q=80", link: `https://www.amazon.in/dp/9389806496?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "जीत आपकी (Jeet Aapki by Shiv Khera)", price: "₹220", desc: "Highly motivating book for personal success.", img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&q=80", link: `https://www.amazon.in/dp/9382597964?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "द सीक्रेट (The Secret - Hindi)", price: "₹350", desc: "Master the law of attraction for growth.", img: "https://images.unsplash.com/photo-1629196914548-52462e08cc3a?w=400&q=80", link: `https://www.amazon.in/dp/8186775836?tag=${AMAZON_AFFILIATE_TAG}` },
-            { title: "चाणक्य नीति (Chanakya Neeti)", price: "₹120", desc: "Ancient wisdom for modern business strategies.", img: "https://images.unsplash.com/photo-1589998059171-98c474868205?w=400&q=80", link: `https://www.amazon.in/dp/8183220027?tag=${AMAZON_AFFILIATE_TAG}` }
-          ]
-        };
-
-        const useScrollReveal = (options = { threshold: 0.1 }) => {
-          const ref = useRef(null);
-          const [isVisible, setIsVisible] = useState(false);
-
-          useEffect(() => {
-            const observer = new IntersectionObserver(([entry]) => {
-              if (entry.isIntersecting) {
-                setIsVisible(true);
-                observer.unobserve(entry.target);
-              }
-            }, options);
-
-            const currentRef = ref.current;
-            if (currentRef) observer.observe(currentRef);
-            return () => { if (currentRef) observer.unobserve(currentRef); };
-          }, [options.threshold]);
-
-          return [ref, isVisible];
-        };
-
-        const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => {
-          const [count, setCount] = useState(0);
-          const [ref, isVisible] = useScrollReveal({ threshold: 0.5 });
-
-          useEffect(() => {
-            if (!isVisible) return;
-            let start = 0;
-            const increment = end / (duration / 16);
-            const timer = setInterval(() => {
-              start += increment;
-              if (start >= end) {
-                setCount(end);
-                clearInterval(timer);
-              } else {
-                setCount(Math.ceil(start));
-              }
-            }, 16);
-            return () => clearInterval(timer);
-          }, [end, duration, isVisible]);
-
-          return <span ref={ref}>{prefix}{count}{suffix}</span>;
-        };
-
-        const RevealSection = ({ children, className = '', delay = 0, direction = 'up' }) => {
-          const [ref, isVisible] = useScrollReveal();
-          let transformInit = 'translateY(30px)';
-          if (direction === 'left') transformInit = 'translateX(-30px)';
-          if (direction === 'right') transformInit = 'translateX(30px)';
-          if (direction === 'none') transformInit = 'none';
-
-          return (
-            <div 
-              ref={ref}
-              className={`transition-all duration-700 ease-out ${className}`}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translate(0)' : transformInit,
-                transitionDelay: `${delay}ms`
-              }}
-            >
-              {children}
-            </div>
-          );
-        };
-
-        const Navbar = () => {
-          const [isScrolled, setIsScrolled] = useState(false);
-          const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-          const { lang, setLang, t } = useContext(LanguageContext);
-
-          useEffect(() => {
-            const handleScroll = () => setIsScrolled(window.scrollY > 20);
-            window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
-          }, []);
-
-          const navLinks = [
-            { id: 'services', label: t.navServices },
-            { id: 'process', label: t.navProcess },
-            { id: 'ebook', label: t.navEbook },
-            { id: 'store', label: t.navStore },
-            { id: 'contact', label: t.navContact }
-          ];
-
-          return (
-            <nav className={`fixed w-full z-50 transition-all duration-300 ${
-              isScrolled ? 'bg-[#020617]/95 backdrop-blur-md border-b border-white/10 py-2 shadow-lg' : 'bg-transparent py-4'
-            }`}>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center">
-                  
-                  <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo(0,0)}>
-                     <div className="bg-white rounded-xl p-1 h-10 w-10 md:h-12 md:w-12 flex items-center justify-center shadow-[0_0_15px_rgba(229,9,20,0.3)] transition-all overflow-hidden">
-                        <img 
-                          src="rudra digital logo.jpg" 
-                          alt="Rudra Digital Marketings" 
-                          className="h-full w-full object-contain"
-                          loading="lazy"
-                        />
-                     </div>
-                     <div className="flex flex-col hidden sm:flex">
-                       <span className="text-white font-black tracking-tighter text-xl leading-tight group-hover:text-[#E50914] transition-colors">
-                         RUDRA <span className="text-[#FF3B30]">DIGITAL</span>
-                       </span>
-                       <span className="text-gray-400 text-[10px] uppercase tracking-widest font-semibold">Marketings</span>
-                     </div>
-                  </div>
-
-                  <div className="hidden md:flex items-center space-x-7">
-                    {navLinks.map((link) => (
-                      <a 
-                        key={link.id} 
-                        href={`#${link.id}`}
-                        className="text-sm font-semibold text-gray-300 hover:text-white transition-colors tracking-wide"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                    
-                    <div className="flex bg-[#0f172a] border border-white/10 rounded-full p-1 shadow-inner">
-                      <button 
-                        onClick={() => setLang('en')}
-                        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${lang === 'en' ? 'bg-[#E50914] text-white shadow-md' : 'text-gray-400 hover:text-white'}`}
-                      >
-                        EN
-                      </button>
-                      <button 
-                        onClick={() => setLang('hi')}
-                        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${lang === 'hi' ? 'bg-[#FF3B30] text-white shadow-md' : 'text-gray-400 hover:text-white'}`}
-                      >
-                        हिंदी
-                      </button>
-                    </div>
-
-                    <a 
-                      href="#contact"
-                      className="relative inline-flex h-9 items-center justify-center overflow-hidden rounded-full p-[1px] focus:outline-none hover:scale-105 transition-transform shadow-[0_0_10px_rgba(229,9,20,0.4)]"
-                    >
-                      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0f172a_0%,#E50914_50%,#FF3B30_100%)]"></span>
-                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-[#0f172a] px-5 py-1 text-sm font-bold text-white backdrop-blur-3xl transition-colors hover:bg-transparent gap-2">
-                        {t.getProposal} <i className="fa-solid fa-arrow-right text-[14px]"></i>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div className="md:hidden flex items-center gap-3">
-                     <div className="flex bg-[#0f172a] border border-white/10 rounded-full p-0.5">
-                      <button 
-                        onClick={() => setLang('en')}
-                        className={`px-2 py-1 rounded-full text-[10px] font-bold transition-all ${lang === 'en' ? 'bg-[#E50914] text-white' : 'text-gray-400'}`}
-                      >
-                        EN
-                      </button>
-                      <button 
-                        onClick={() => setLang('hi')}
-                        className={`px-2 py-1 rounded-full text-[10px] font-bold transition-all ${lang === 'hi' ? 'bg-[#FF3B30] text-white' : 'text-gray-400'}`}
-                      >
-                        HI
-                      </button>
-                    </div>
-                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-300 hover:text-white p-2">
-                      <i className={isMobileMenuOpen ? "fa-solid fa-xmark text-2xl" : "fa-solid fa-bars text-2xl"}></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`md:hidden absolute w-full bg-[#020617] border-b border-white/10 shadow-2xl transition-all duration-300 origin-top ${isMobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}>
-                <div className="px-4 pt-2 pb-6 space-y-2">
-                  {navLinks.map((link) => (
-                    <a
-                      key={link.id}
-                      href={`#${link.id}`}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/5"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                  <a 
-                     href="#contact"
-                     onClick={() => setIsMobileMenuOpen(false)}
-                     className="flex justify-center items-center gap-2 w-full mt-4 bg-gradient-to-r from-[#E50914] to-[#FF3B30] text-white px-4 py-3 rounded-md font-bold shadow-lg"
-                  >
-                    {t.getProposal} <i className="fa-solid fa-arrow-right text-[16px]"></i>
-                  </a>
-                </div>
-              </div>
-            </nav>
-          );
-        };
-
-        const Hero = () => {
-          const { t } = useContext(LanguageContext);
-          return (
-            <section className="relative min-h-[85svh] flex items-center justify-center pt-20 pb-8 overflow-hidden bg-[#020617]">
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CgkJPHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIwdi0yMHptLTIwIDBoMjB2MjBIMHYtMjB6IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDIiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgoJPC9zdmc+')] opacity-10"></div>
-                <div className="absolute top-1/4 -left-20 w-[300px] h-[300px] bg-[#E50914] rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse"></div>
-                <div className="absolute bottom-1/4 -right-20 w-[300px] h-[300px] bg-[#2563eb] rounded-full mix-blend-screen filter blur-[150px] opacity-20"></div>
-              </div>
-
-              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <RevealSection>
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-5 shadow-xl">
-                    <span className="flex h-2 w-2 rounded-full bg-[#E50914] animate-ping"></span>
-                    <span className="text-xs md:text-sm font-bold text-gray-200 tracking-wide">{t.heroBadge}</span>
-                  </div>
-                </RevealSection>
-
-                <RevealSection delay={150}>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-4 leading-tight">
-                    {t.heroTitle1} <br className="hidden md:block" />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E50914] to-[#ff7b72]">
-                      {t.heroTitle2}
-                    </span>
-                  </h1>
-                </RevealSection>
-
-                <RevealSection delay={300}>
-                  <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed font-medium">
-                    {t.heroSub}
-                  </p>
-                </RevealSection>
-
-                <RevealSection delay={450} className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4 sm:px-0">
-                  <a 
-                    href="#contact"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#E50914] to-[#FF3B30] text-white font-bold text-base hover:shadow-[0_0_25px_rgba(229,9,20,0.5)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
-                  >
-                    {t.btnConsult} <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                  <a 
-                    href={`https://wa.me/${CONTACT.waNumber}?text=Hello%20Rudra%20Digital%20Marketings,%20I%20want%20to%20grow%20my%20business.`}
-                    target="_blank" rel="noreferrer"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] font-bold text-base hover:bg-[#25D366]/20 transition-all backdrop-blur-md flex items-center justify-center gap-2"
-                  >
-                    <i className="fa-brands fa-whatsapp text-xl"></i> {t.btnWa}
-                  </a>
-                </RevealSection>
-              </div>
-            </section>
-          );
-        };
-
-        const TrustSection = () => {
-          const { t } = useContext(LanguageContext);
-          const STATS_DATA = [
-            { value: 500, suffix: '+', label: t.statsProjects },
-            { value: 100, suffix: '+', label: t.statsClients },
-            { value: 100, suffix: '+', label: t.statsRevenue },
-            { value: 98, prefix: 'Up to ', suffix: '%', label: t.statsRetention },
-          ];
-
-          return (
-            <section className="py-8 md:py-10 bg-[#020617] border-y border-white/5 relative z-20">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                  {STATS_DATA.map((stat, idx) => (
-                    <RevealSection key={idx} delay={idx * 100}>
-                      <div className="p-4 md:p-6 rounded-2xl bg-[#0f172a]/80 border border-white/10 hover:border-[#E50914]/50 transition-all shadow-lg hover:-translate-y-1 h-full flex flex-col justify-center">
-                        <div className="text-2xl md:text-4xl font-black text-white mb-2 group-hover:scale-105 transition-transform">
-                          {stat.prefix && <span className="text-lg md:text-xl mr-1 text-gray-400">{stat.prefix}</span>}
-                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E50914] to-[#ff7b72]">
-                            <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                          </span>
-                        </div>
-                        <div className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-widest">{stat.label}</div>
-                      </div>
-                    </RevealSection>
-                  ))}
-                </div>
-              </div>
-            </section>
-          );
-        };
-
-        const ClientMarquee = () => {
-          const { t } = useContext(LanguageContext);
-          const industries = ['Hospitals', 'Real Estate', 'Local Businesses', 'Coaching Institutes', 'Restaurants', 'Retail Shops', 'Automobile', 'Jewellery', 'Doctors', 'Schools', 'Salons'];
-          
-          return (
-            <section className="py-8 bg-[#000000] overflow-hidden border-b border-white/5 relative">
-              <div className="max-w-7xl mx-auto px-4 mb-4 text-center">
-                <p className="text-xs font-bold text-[#E50914] uppercase tracking-widest">{t.indTitle}</p>
-              </div>
-              <div className="relative flex overflow-x-hidden mt-4">
-                <div className="py-1 animate-marquee flex items-center space-x-10 md:space-x-16 whitespace-nowrap min-w-full">
-                  {[...industries, ...industries, ...industries].map((industry, idx) => (
-                    <span key={idx} className="text-2xl md:text-4xl font-black text-white/20 uppercase tracking-wide cursor-default hover:text-white/40 transition-colors">
-                      {industry}
-                    </span>
-                  ))}
-                </div>
-                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#000] to-transparent pointer-events-none"></div>
-                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#000] to-transparent pointer-events-none"></div>
-              </div>
-            </section>
-          );
-        };
-
-        const ServicesSection = () => {
-          const { t } = useContext(LanguageContext);
-          return (
-            <section id="services" className="py-12 md:py-16 bg-[#020617] relative">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-2xl mx-auto mb-8">
-                  <RevealSection>
-                    <h2 className="text-xs font-bold text-[#E50914] tracking-widest uppercase mb-2">{t.srvBadge}</h2>
-                    <h3 className="text-2xl md:text-4xl font-black text-white mb-3">{t.srvTitle}</h3>
-                    <p className="text-sm text-gray-400">{t.srvSub}</p>
-                  </RevealSection>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-                  {SERVICES_DATA.map((service, index) => (
-                    <RevealSection key={index} delay={(index % 3) * 100}>
-                      <div className="group rounded-[20px] bg-[#0f172a] border border-white/5 hover:border-[#E50914]/30 transition-all overflow-hidden h-full flex flex-col hover:shadow-2xl">
-                        <div className="h-40 w-full relative overflow-hidden bg-black">
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent z-10"></div>
-                          <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60 group-hover:opacity-100" loading="lazy" />
-                          <div className="absolute top-4 left-4 w-10 h-10 rounded-lg bg-[#020617]/80 backdrop-blur-md border border-white/10 flex items-center justify-center z-20 shadow-lg">
-                            {service.icon}
-                          </div>
-                        </div>
-                        <div className="p-5 flex flex-col flex-grow">
-                          <h4 className="text-lg font-bold text-white mb-2">{service.title}</h4>
-                          <p className="text-gray-400 text-sm flex-grow mb-4">{service.desc}</p>
-                          <a href="#contact" className="inline-flex items-center text-xs font-bold text-[#E50914] group-hover:text-[#FF3B30] transition-colors mt-auto uppercase tracking-wide">
-                            {t.getProposal} <i className="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </RevealSection>
-                  ))}
-                </div>
-              </div>
-            </section>
-          );
-        };
-
-        const ProcessSection = () => {
-          const { t } = useContext(LanguageContext);
-          const steps = [
-            { num: "01", title: "Discovery & Strategy", desc: "We analyze your local business and competitors to craft a roadmap." },
-            { num: "02", title: "Setup & Execution", desc: "Building landing pages, tracking, and launching local ad campaigns." },
-            { num: "03", title: "Optimize & Scale", desc: "A/B testing, optimization, and scaling for maximum ROI." }
-          ];
-
-          return (
-            <section id="process" className="py-12 md:py-16 bg-[#000000] border-y border-white/5 relative">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-8">
-                  <RevealSection>
-                     <h2 className="text-xs font-bold text-[#E50914] tracking-widest uppercase mb-2">{t.processBadge}</h2>
-                     <h3 className="text-2xl md:text-4xl font-black text-white">{t.processTitle}</h3>
-                  </RevealSection>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 relative">
-                  <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E50914]/50 to-transparent -translate-y-1/2 z-0"></div>
-                  {steps.map((step, idx) => (
-                    <RevealSection key={idx} delay={idx * 150} className="relative z-10">
-                      <div className="bg-[#0f172a] p-5 md:p-6 rounded-2xl border border-white/5 text-center flex flex-col items-center shadow-lg hover:border-[#E50914]/30 transition-colors h-full">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#E50914] to-[#FF3B30] rounded-full flex items-center justify-center text-lg font-black text-white mb-4 shadow-[0_0_15px_rgba(229,9,20,0.4)]">
-                          {step.num}
-                        </div>
-                        <h4 className="text-base md:text-lg font-bold text-white mb-2">{step.title}</h4>
-                        <p className="text-gray-400 text-xs md:text-sm">{step.desc}</p>
-                      </div>
-                    </RevealSection>
-                  ))}
-                </div>
-              </div>
-            </section>
-          );
-        };
-
-        const TestimonialsSection = () => {
-          const { t } = useContext(LanguageContext);
-          
-          return (
-            <section className="py-12 md:py-16 bg-[#020617] border-b border-white/5 overflow-hidden">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-                <RevealSection>
-                  <h2 className="text-xs font-bold text-[#E50914] tracking-widest uppercase mb-2">{t.testiBadge}</h2>
-                  <h3 className="text-2xl md:text-4xl font-black text-white">{t.testiTitle}</h3>
-                </RevealSection>
-              </div>
-
-              <div className="relative flex overflow-x-hidden group mt-4">
-                <div className="py-4 animate-[marquee_30s_linear_infinite] flex items-center space-x-6 whitespace-nowrap min-w-full">
-                  {[...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA].map((testi, idx) => (
-                    <div key={idx} className="w-[300px] md:w-[350px] inline-flex flex-col bg-[#0f172a] border border-white/10 rounded-2xl p-6 whitespace-normal shadow-lg hover:border-[#E50914]/40 transition-colors mx-3">
-                      <div className="flex text-[#FFD700] mb-3">
-                        {[...Array(5)].map((_, i) => <i key={i} className="fa-solid fa-star text-[14px] mr-1"></i>)}
-                      </div>
-                      <p className="text-sm text-gray-300 mb-4 flex-grow italic line-clamp-3">"{testi.review}"</p>
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E50914] to-[#FF3B30] flex items-center justify-center text-white font-bold">
-                          {testi.name.charAt(0)}
-                        </div>
-                        <div>
-                          <h5 className="text-sm font-bold text-white">{testi.name}</h5>
-                          <span className="text-[10px] text-gray-400 flex items-center gap-1"><i className="fa-solid fa-circle-check text-[#00F5A0]"></i> Verified Client</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#020617] to-transparent pointer-events-none"></div>
-                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#020617] to-transparent pointer-events-none"></div>
-              </div>
-            </section>
-          );
+        /* Custom Animations & Styles */
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
         }
 
-        const EbookSection = () => {
-          const { t } = useContext(LanguageContext);
-          const ebookLink = `https://pages.razorpay.com/rudradigitalebooks`;
+        /* Marquee Animation */
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 2rem;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .marquee-content {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-around;
+            min-width: 100%;
+            gap: 2rem;
+            animation: scroll-x 20s linear infinite;
+        }
+        @keyframes scroll-x {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 2rem)); }
+        }
+        
+        /* Glassmorphism for Form */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
 
-          return (
-            <section id="ebook" className="py-12 md:py-16 bg-[#000000] relative border-b border-white/5">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-gradient-to-br from-[#0f172a] to-[#020617] border border-white/10 rounded-[24px] overflow-hidden shadow-2xl p-8 md:p-12 text-center">
-                  <RevealSection direction="up">
-                    <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full bg-[#E50914]/10 border border-[#E50914]/30 mb-5 mx-auto">
-                        <i className="fa-solid fa-book-open text-[#E50914]"></i>
-                        <span className="text-[10px] md:text-xs font-bold text-[#E50914] uppercase tracking-wider">{t.ebookBadge}</span>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4 leading-tight">{t.ebookTitle}</h3>
-                    <p className="text-sm md:text-base text-gray-300 mb-8 max-w-2xl mx-auto">{t.ebookSub}</p>
-                    
-                    <div className="flex flex-col sm:flex-row gap-5 mb-8 bg-white/5 p-4 rounded-xl border border-white/5 justify-center items-center max-w-xl mx-auto">
-                      <div className="text-center sm:text-left">
-                        <span className="text-gray-400 text-xs font-bold mb-1 block uppercase tracking-wide">{t.ebookPriceLabel}</span>
-                        <div className="flex items-baseline justify-center sm:justify-start gap-2">
-                          <span className="text-gray-500 text-base line-through decoration-[#E50914]">{t.ebookPriceCut}</span>
-                          <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#E50914] to-[#FF3B30]">{t.ebookPriceNow}</span>
-                        </div>
-                      </div>
-                      <div className="hidden sm:block w-px h-12 bg-white/10 mx-4"></div>
-                      <div className="text-xs font-bold text-gray-300 space-y-2 flex flex-col justify-center text-left">
-                        <div className="flex items-center gap-2"><i className="fa-solid fa-check text-[#E50914]"></i> Instant Access on WhatsApp</div>
-                        <div className="flex items-center gap-2"><i className="fa-solid fa-check text-[#E50914]"></i> Lifetime Validity</div>
-                      </div>
-                    </div>
+        /* Hide scrollbar for tabs */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-800 antialiased selection:bg-brand-gold selection:text-white">
 
-                    <a 
-                      href={ebookLink}
-                      target="_blank" rel="noreferrer"
-                      className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#E50914] to-[#FF3B30] text-white font-bold text-base hover:shadow-[0_0_20px_rgba(229,9,20,0.4)] transition-all hover:-translate-y-1 inline-flex items-center justify-center gap-2"
-                    >
-                      {t.ebookBtn} <i className="fa-solid fa-arrow-right"></i>
+    <nav class="fixed w-full bg-brand-dark/95 backdrop-blur-md text-white z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold font-heading text-white tracking-wider">
+                        Rudra<span class="text-brand-gold">Digital</span>
                     </a>
-                  </RevealSection>
                 </div>
-              </div>
-            </section>
-          );
-        };
-
-        const StoreSection = () => {
-          const { t } = useContext(LanguageContext);
-          const categories = Object.keys(STORE_DATA);
-          const [activeTab, setActiveTab] = useState(categories[0]);
-
-          const displayItems = useMemo(() => {
-            const today = new Date().getDate();
-            const items = [...STORE_DATA[activeTab]];
-            for (let i = items.length - 1; i > 0; i--) {
-              const j = (i + today) % items.length;
-              [items[i], items[j]] = [items[j], items[i]];
-            }
-            return items;
-          }, [activeTab]);
-
-          const getIcon = (cat) => {
-            switch(cat) {
-              case 'Gadgets': return <i className="fa-solid fa-headphones"></i>;
-              case 'Laptops': return <i className="fa-solid fa-laptop"></i>;
-              case 'Mobiles': return <i className="fa-solid fa-mobile-screen"></i>;
-              case 'Books': return <i className="fa-solid fa-book-open"></i>;
-              default: return <i className="fa-solid fa-cart-shopping"></i>;
-            }
-          };
-
-          return (
-            <section id="store" className="py-12 md:py-16 bg-[#020617] border-b border-white/5 relative">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-2xl mx-auto mb-8">
-                  <RevealSection>
-                    <h2 className="text-xs font-bold text-[#E50914] tracking-widest uppercase mb-2 flex items-center justify-center gap-2">
-                      <i className="fa-solid fa-cart-shopping"></i> {t.storeBadge}
-                    </h2>
-                    <h3 className="text-2xl md:text-4xl font-black text-white mb-3">{t.storeTitle}</h3>
-                    <p className="text-sm text-gray-400">{t.storeSub}</p>
-                  </RevealSection>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="hover:text-brand-gold transition">सर्विसेज</a>
+                    <a href="#packages" class="hover:text-brand-gold transition">पैकेज</a>
+                    <a href="#ebook" class="hover:text-brand-gold transition text-brand-gold font-semibold">🔥 ई-बुक्स</a>
+                    <a href="#store" class="hover:text-brand-gold transition">स्टोर</a>
+                    <a href="https://wa.me/919799705368" target="_blank" class="bg-brand-gold text-brand-dark px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition shadow-[0_0_15px_rgba(245,158,11,0.5)]">
+                        सम्पर्क करें
+                    </a>
                 </div>
-
-                <RevealSection delay={150}>
-                  <div className="flex flex-wrap justify-center gap-2 mb-8">
-                    {categories.map(cat => (
-                      <button
-                        key={cat}
-                        onClick={() => setActiveTab(cat)}
-                        className={`px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all ${
-                          activeTab === cat 
-                            ? 'bg-[#E50914] text-white shadow-[0_0_15px_rgba(229,9,20,0.4)]' 
-                            : 'bg-[#0f172a] border border-white/10 text-gray-400 hover:text-white hover:border-white/30'
-                        }`}
-                      >
-                        {getIcon(cat)} {cat}
-                      </button>
-                    ))}
-                  </div>
-                </RevealSection>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                  {displayItems.map((item, idx) => (
-                    <RevealSection key={idx} delay={idx * 100}>
-                      <a 
-                        href={item.link} 
-                        target="_blank" 
-                        rel="noreferrer"
-                        className="group block bg-[#0f172a] rounded-xl border border-white/5 hover:border-[#E50914]/40 transition-all overflow-hidden h-full flex flex-col hover:shadow-xl hover:-translate-y-1"
-                      >
-                        <div className="h-32 md:h-40 w-full bg-white relative overflow-hidden p-3 flex items-center justify-center">
-                           <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-                           <div className="absolute top-2 right-2 bg-[#E50914] text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">Budget Choice</div>
-                        </div>
-                        <div className="p-3 flex flex-col flex-grow justify-between bg-[#0f172a]">
-                          <div>
-                            <h4 className="text-xs font-bold text-gray-200 mb-1 line-clamp-2 leading-tight group-hover:text-[#E50914] transition-colors">{item.title}</h4>
-                            <span className="text-[10px] text-gray-500 mb-2 block">{activeTab}</span>
-                            <p className="text-[10px] text-gray-400 mb-2 line-clamp-2">{item.desc}</p>
-                          </div>
-                          <div>
-                            <div className="text-base font-black text-white mb-2">{item.price}</div>
-                            <div className="w-full py-1.5 rounded-lg bg-white/5 text-gray-300 text-[10px] uppercase font-bold text-center group-hover:bg-[#E50914] group-hover:text-white transition-colors flex items-center justify-center gap-1">
-                              <i className="fa-solid fa-cart-shopping"></i> {t.btnBuy}
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </RevealSection>
-                  ))}
-                </div>
-              </div>
-            </section>
-          );
-        };
-
-        const ContactSection = () => {
-          const { t, lang } = useContext(LanguageContext);
-          const [formData, setFormData] = useState({
-            name: '', business: '', phone: '', location: '', service: '', message: ''
-          });
-          const [isSubmitting, setIsSubmitting] = useState(false);
-          const [showSuccess, setShowSuccess] = useState(false);
-
-          const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-          const handleSubmit = (e) => {
-            e.preventDefault();
-            setIsSubmitting(true);
-            setTimeout(() => {
-              setIsSubmitting(false);
-              setShowSuccess(true);
-              const text = lang === 'hi' 
-                ? `नमस्ते रुद्रा डिजिटल मार्केटिंग,\n\nमैं डिजिटल मार्केटिंग के जरिए अपना बिज़नेस बढ़ाना चाहता हूँ।\n\n*Name:* ${formData.name}\n*Business:* ${formData.business}\n*Location:* ${formData.location}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`
-                : `Hello Rudra Digital Marketings,\n\nI want to grow my business through Digital Marketing.\n\n*Name:* ${formData.name}\n*Business:* ${formData.business}\n*Location:* ${formData.location}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
-              
-              const waLink = `https://wa.me/${CONTACT.waNumber}?text=${encodeURIComponent(text)}`;
-              setTimeout(() => {
-                window.open(waLink, '_blank');
-                setFormData({ name: '', business: '', phone: '', location: '', service: '', message: '' });
-                setShowSuccess(false);
-              }, 1500);
-            }, 1000);
-          };
-
-          const servicesList = [
-            "Google Ads Management", "Facebook & Instagram Ads", "SEO", 
-            "Web Design", "Lead Generation", "WhatsApp Automation", 
-            "Graphic Design", "Social Media Ads", "Video Editing"
-          ];
-
-          return (
-            <section id="contact" className="py-12 md:py-16 bg-[#000000] relative border-t border-white/5">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-[#0f172a] border border-white/10 rounded-[20px] overflow-hidden shadow-2xl">
-                  <div className="grid grid-cols-1 lg:grid-cols-5">
-                    
-                    <div className="lg:col-span-2 bg-gradient-to-br from-[#E50914] to-[#7f1d1d] p-6 md:p-8 text-white flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-xl md:text-2xl font-black mb-2">{t.contactBadge}</h3>
-                        <p className="text-red-100 mb-6 text-xs md:text-sm">{t.contactSub}</p>
-                        <div className="space-y-4">
-                          <a href={`tel:${CONTACT.phone}`} className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><i className="fa-solid fa-phone"></i></div>
-                            <div><div className="text-[10px] text-red-200">Call Us</div><div className="text-xs md:text-sm font-bold">{CONTACT.phone}</div></div>
-                          </a>
-                          <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><i className="fa-solid fa-envelope"></i></div>
-                            <div><div className="text-[10px] text-red-200">Email</div><div className="text-xs md:text-sm font-bold break-all">{CONTACT.email}</div></div>
-                          </a>
-                        </div>
-                      </div>
-                      <div className="w-full h-28 md:h-32 rounded-lg overflow-hidden mt-6 border border-white/20 shadow-lg">
-                        <iframe src={CONTACT.mapUrl} width="100%" height="100%" style={{border:0}} allowFullScreen="" loading="lazy" title="Map"></iframe>
-                      </div>
-                    </div>
-
-                    <div className="lg:col-span-3 p-6 md:p-8 relative bg-[#020617]">
-                      {showSuccess ? (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#020617] z-20 animate-fade-in p-6 text-center">
-                          <i className="fa-solid fa-circle-check text-[#E50914] text-5xl mb-4"></i>
-                          <h3 className="text-xl font-black text-white mb-2">Request Received!</h3>
-                          <p className="text-gray-400 text-xs mb-4">Redirecting to WhatsApp...</p>
-                          <div className="w-6 h-6 border-2 border-[#E50914] border-t-transparent rounded-full animate-spin"></div>
-                        </div>
-                      ) : (
-                        <>
-                          <h3 className="text-lg font-black text-white mb-4">{t.contactFormTitle}</h3>
-                          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                              <div>
-                                <label className="block text-[10px] md:text-xs font-bold text-gray-400 mb-1">{t.formName}</label>
-                                <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full bg-[#0f172a] border border-white/10 rounded-lg px-3 py-2 text-white text-xs md:text-sm focus:border-[#E50914] outline-none" />
-                              </div>
-                              <div>
-                                <label className="block text-[10px] md:text-xs font-bold text-gray-400 mb-1">{t.formPhone}</label>
-                                <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-[#0f172a] border border-white/10 rounded-lg px-3 py-2 text-white text-xs md:text-sm focus:border-[#E50914] outline-none" />
-                              </div>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                              <div>
-                                <label className="block text-[10px] md:text-xs font-bold text-gray-400 mb-1">{t.formBiz}</label>
-                                <input required type="text" name="business" value={formData.business} onChange={handleChange} className="w-full bg-[#0f172a] border border-white/10 rounded-lg px-3 py-2 text-white text-xs md:text-sm focus:border-[#E50914] outline-none" />
-                              </div>
-                              <div>
-                                <label className="block text-[10px] md:text-xs font-bold text-gray-400 mb-1">{t.formLocation}</label>
-                                <input required type="text" name="location" value={formData.location} onChange={handleChange} placeholder="e.g. Kekri, Ajmer, Sarwar" className="w-full bg-[#0f172a] border border-white/10 rounded-lg px-3 py-2 text-white text-xs md:text-sm focus:border-[#E50914] outline-none" />
-                              </div>
-                            </div>
-                            <div>
-                              <label className="block text-[10px] md:text-xs font-bold text-gray-400 mb-1">{t.formService}</label>
-                              <select required name="service" value={formData.service} onChange={handleChange} className="w-full bg-[#0f172a] border border-white/10 rounded-lg px-3 py-2 text-white text-xs md:text-sm focus:border-[#E50914] outline-none appearance-none">
-                                <option value="">{t.formSelectService}</option>
-                                {servicesList.map(s => <option key={s} value={s}>{s}</option>)}
-                              </select>
-                            </div>
-                            <div>
-                              <label className="block text-[10px] md:text-xs font-bold text-gray-400 mb-1">{t.formMsg}</label>
-                              <textarea name="message" rows="2" value={formData.message} onChange={handleChange} className="w-full bg-[#0f172a] border border-white/10 rounded-lg px-3 py-2 text-white text-xs md:text-sm focus:border-[#E50914] outline-none resize-none"></textarea>
-                            </div>
-                            <button type="submit" disabled={isSubmitting} className="w-full py-2.5 md:py-3 rounded-lg bg-[#E50914] text-white font-bold text-xs md:text-sm hover:bg-[#FF3B30] transition-colors flex items-center justify-center gap-2 mt-1">
-                              {isSubmitting ? <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div> : <>{t.formSubmit} <i className="fa-solid fa-arrow-right"></i></>}
-                            </button>
-                          </form>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          );
-        };
-
-        const Footer = () => {
-          return (
-            <footer className="bg-[#000000] pt-12 pb-6 border-t border-white/10">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                  <div className="lg:col-span-1">
-                     <div className="bg-white rounded-xl p-1 h-10 w-10 flex items-center justify-center mb-4">
-                        <img src="rudra digital logo.jpg" alt="Logo" className="h-full w-full object-contain" loading="lazy" />
-                     </div>
-                     <p className="text-gray-400 text-xs mb-5 leading-relaxed">
-                       Top rated digital marketing agency serving Kekri, Sarwar, Ajmer, Sawar, Bhinai, Bijaynagar, Nasirabad, Tantoti & Bandanwara.
-                     </p>
-                     <div className="flex gap-2">
-                       <a href="https://www.facebook.com/rudradigitalmarketings" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-[#1877F2] hover:text-white transition-colors">
-                         <i className="fa-brands fa-facebook"></i>
-                       </a>
-                       <a href="https://www.instagram.com/rudradigitalmarketings" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white transition-colors">
-                         <i className="fa-brands fa-instagram"></i>
-                       </a>
-                       <a href={`https://wa.me/${CONTACT.waNumber}`} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-[#25D366] hover:text-white transition-colors">
-                         <i className="fa-brands fa-whatsapp"></i>
-                       </a>
-                       <a href={CONTACT.youtube} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-[#FF0000] hover:text-white transition-colors">
-                         <i className="fa-brands fa-youtube"></i>
-                       </a>
-                     </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-white font-bold mb-3 text-[10px] md:text-xs uppercase tracking-wider">Premium Services</h4>
-                    <ul className="space-y-1.5">
-                      {['Google Ads', 'Facebook Ads', 'SEO', 'Web Design', 'WhatsApp Automation', 'Graphic Design'].map(link => (
-                        <li key={link}><a href="#services" className="text-gray-400 text-xs hover:text-[#E50914] transition-colors">{link}</a></li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-white font-bold mb-3 text-[10px] md:text-xs uppercase tracking-wider">Company</h4>
-                    <ul className="space-y-1.5">
-                      {[
-                        { n: 'Our Process', l: '#process' }, 
-                        { n: 'E-Books', l: '#ebook' }, 
-                        { n: 'Premium Store', l: '#store'},
-                        { n: 'Contact', l: '#contact' }
-                      ].map(link => (
-                        <li key={link.n}><a href={link.l} className="text-gray-400 text-xs hover:text-[#E50914] transition-colors">{link.n}</a></li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-white font-bold mb-3 text-[10px] md:text-xs uppercase tracking-wider">Get in Touch</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2 text-gray-400 text-xs"><i className="fa-solid fa-location-dot text-[#E50914] mt-0.5"></i> <span>{CONTACT.address}</span></li>
-                      <li className="flex items-center gap-2 text-gray-400 text-xs"><i className="fa-solid fa-phone text-[#E50914]"></i> {CONTACT.phone}</li>
-                      <li className="flex items-center gap-2 text-gray-400 text-xs"><i className="fa-solid fa-envelope text-[#E50914]"></i> {CONTACT.email}</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="border-t border-white/10 pt-4 flex flex-col md:flex-row justify-between items-center gap-2 text-[10px] text-gray-500">
-                  <p>© {new Date().getFullYear()} Rudra Digital Marketings. All rights reserved.</p>
-                  <p>Designed for Lead Generation in Kekri, Ajmer & Local Areas.</p>
-                </div>
-              </div>
-            </footer>
-          );
-        };
-
-        const FloatingWidgets = () => {
-          const [showTopBtn, setShowTopBtn] = useState(false);
-
-          useEffect(() => {
-            const handleScroll = () => setShowTopBtn(window.scrollY > 400);
-            window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
-          }, []);
-
-          return (
-            <div className="fixed bottom-6 right-4 md:right-6 z-50 flex flex-col gap-3">
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className={`w-8 h-8 md:w-10 md:h-10 bg-[#0f172a] border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#E50914] transition-all shadow-xl ${showTopBtn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
-              >
-                <i className="fa-solid fa-arrow-up"></i>
-              </button>
-              
-              <a 
-                href={`https://wa.me/${CONTACT.waNumber}?text=Hello%20Rudra%20Digital%20Marketings,%20I%20want%20to%20grow%20my%20business.`}
-                target="_blank" rel="noreferrer"
-                className="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-105 transition-transform"
-              >
-                <i className="fa-brands fa-whatsapp text-2xl"></i>
-              </a>
             </div>
-          );
-        };
+        </div>
+    </nav>
 
-        const App = () => {
-          const [lang, setLang] = useState('en');
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-brand-dark overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/40 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-white font-heading leading-tight mb-6 fade-in-section">
+                बड़ी एजेंसियों जैसा काम,<br>
+                <span class="text-brand-gold">छोटे व्यापारियों वाले दाम!</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 fade-in-section">
+                आपके बिज़नेस को ऑनलाइन ले जाने की पूरी ज़िम्मेदारी हमारी। बिना किसी महंगे कांट्रैक्ट के, अपने शहर में ग्राहकों की लाइन लगाएं। वेबसाइट बनाने से लेकर, सोशल मीडिया, वीडियो एडिटिंग और गूगल पर नंबर #1 आने तक—सब कुछ एक ही जगह।
+            </p>
+            <div class="fade-in-section flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/919799705368?text=Hello%20Rudra%20Digital%20Marketings,%20I%20want%20a%20free%20consultation." target="_blank" class="bg-brand-gold text-brand-dark text-lg font-bold px-8 py-4 rounded-full hover:bg-yellow-400 hover:scale-105 transition transform shadow-xl shadow-brand-gold/30 flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-2xl"></i> मुफ़्त सलाह के लिए व्हाट्सएप करें
+                </a>
+            </div>
+            <div class="mt-12 text-sm text-gray-400 fade-in-section">
+                <span>📍 Service Area: Kekri, Sarwar, Ajmer & All Over India</span>
+            </div>
+        </div>
+    </section>
 
-          useEffect(() => {
-            document.title = "Rudra Digital Marketings | Digital Marketing Agency in Kekri & Ajmer";
-          }, []);
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">छोटे व्यापारी हमें क्यों चुनें?</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+            </div>
 
-          return (
-            <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
-              <div className="bg-[#020617] min-h-screen text-slate-50 font-sans selection:bg-[#E50914] selection:text-white overflow-x-hidden">
-                <Navbar />
-                <main>
-                  <Hero />
-                  <ClientMarquee />
-                  <TrustSection />
-                  <ServicesSection />
-                  <ProcessSection />
-                  <TestimonialsSection />
-                  <EbookSection />
-                  <StoreSection />
-                  <ContactSection />
-                </main>
-                <Footer />
-                <FloatingWidgets />
-              </div>
-            </LanguageContext.Provider>
-          );
-        };
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Point 1 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
+                    <div class="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-handshake text-2xl text-brand-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">कोई मिडिलमैन नहीं, सीधी बात</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">आप किसी एजेंसी के सेल्समैन से नहीं, बल्कि सीधे काम करने वाले एक्सपर्ट (Rudra Digital) से बात करते हैं। आपका कीमती समय और पैसा बचता है।</p>
+                </div>
+                <!-- Point 2 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
+                    <div class="w-14 h-14 bg-green-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-coins text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">एकदम बजट-फ्रेंडली रेट्स</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">हमारा कोई बड़ा ऑफिस या फालतू के खर्चे नहीं हैं, इसलिए हम आपको मार्केट से आधी कीमत पर बेस्ट क्वालिटी काम देते हैं।</p>
+                </div>
+                <!-- Point 3 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
+                    <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-chart-line text-2xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">लोकल मार्केट की समझ</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">मुझे पता है कि आपके शहर के लोकल ग्राहक क्या देखकर दुकान पर आते हैं। हम उसी हिसाब से स्ट्रेटेजी बनाते हैं।</p>
+                </div>
+                <!-- Point 4 -->
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-2xl hover:border-brand-gold/50 transition duration-300 group fade-in-section">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-tools text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">ऑल-इन-वन सर्विस</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">आपको वीडियो एडिटर, डिज़ाइनर और डेवलपर के लिए अलग-अलग लोगों को ढूंढने और पैसे देने की ज़रूरत नहीं। सारा काम हम खुद संभालते हैं।</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+    <section id="services" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">हमारी अफोर्डेबल प्राइस लिस्ट</h2>
+                <p class="mt-4 text-gray-600">अपनी ज़रूरत के हिसाब से कोई भी सिंगल सर्विस चुनें।</p>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Website Creation -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-brand-blue fade-in-section">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-globe text-2xl text-brand-blue"></i>
+                        <h3 class="text-lg font-bold">वेबसाइट निर्माण (Website)</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex justify-between border-b pb-2"><span>बेसिक (3-5 पेजेस):</span> <span class="font-bold text-green-600">₹6,999</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>एडवांस (लीड्स के लिए):</span> <span class="font-bold text-green-600">₹9,999</span></li>
+                        <li class="flex justify-between pb-2"><span>ई-कॉमर्स (ऑनलाइन दुकान):</span> <span class="font-bold text-green-600">₹14,999</span></li>
+                    </ul>
+                </div>
+
+                <!-- Local SEO -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-red-500 fade-in-section">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-red-500"></i>
+                        <h3 class="text-lg font-bold">लोकल SEO और गूगल मैप्स</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex justify-between border-b pb-2"><span>GMB प्रोफाइल सेटअप:</span> <span class="font-bold text-green-600">₹1,999 (एक बार)</span></li>
+                        <li class="flex justify-between pb-2"><span>मंथली गूगल मैप्स रैंकिंग:</span> <span class="font-bold text-green-600">₹3,499/महीना</span></li>
+                    </ul>
+                </div>
+
+                <!-- Content Creation -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-purple-500 fade-in-section">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-video text-2xl text-purple-500"></i>
+                        <h3 class="text-lg font-bold">कंटेंट क्रिएशन (Video/Graphics)</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex justify-between border-b pb-2"><span>रील्स/शॉर्ट्स एडिटिंग:</span> <span class="font-bold text-green-600">₹499 - ₹799/pc</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>रील्स मंथली (8 वीडियोस):</span> <span class="font-bold text-green-600">₹3,999/महीना</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>पोस्ट/बैनर डिज़ाइन:</span> <span class="font-bold text-green-600">₹199 - ₹299/pc</span></li>
+                        <li class="flex justify-between pb-2"><span>फेस्टिवल पैक (12 इमेजेस):</span> <span class="font-bold text-green-600">₹2,499/महीना</span></li>
+                    </ul>
+                </div>
+
+                <!-- Full Website SEO -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-green-500 fade-in-section">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-search text-2xl text-green-500"></i>
+                        <h3 class="text-lg font-bold">सर्च इंजन ऑप्टिमाइजेशन (SEO)</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex flex-col pb-2">
+                            <span class="mb-1">वेबसाइट को गूगल के पहले पेज पर लाना (लॉन्ग-टर्म फ्री ट्रैफिक):</span> 
+                            <span class="font-bold text-green-600 text-right">₹5,999/महीना</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Ads -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-blue-500 fade-in-section">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-bullhorn text-2xl text-blue-500"></i>
+                        <h3 class="text-lg font-bold">सोशल मीडिया ऐड्स (100% Leads)</h3>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-2">Instagram, Facebook, Google, YouTube</p>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex justify-between border-b pb-2"><span>ऐड सेटअप और रन:</span> <span class="font-bold text-green-600">₹3,999/महीना</span></li>
+                        <li class="flex justify-between pb-2"><span>कम्पलीट लीड जनरेशन:</span> <span class="font-bold text-green-600">₹5,999/महीना</span></li>
+                    </ul>
+                </div>
+
+                <!-- Reviews Management -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition border-t-4 border-brand-gold fade-in-section">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-star text-2xl text-brand-gold"></i>
+                        <h3 class="text-lg font-bold">रिव्यूज और रेटिंग्स मैनेजमेंट</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex flex-col pb-2">
+                            <span class="mb-1">गूगल रिव्यूज स्ट्रेटेजी और QR सेटअप (5-स्टार रेटिंग्स के लिए):</span> 
+                            <span class="font-bold text-green-600 text-right">₹1,499 (एक बार)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-10 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-center fade-in-section">
+                <p class="text-yellow-800 font-semibold"><i class="fas fa-lightbulb text-brand-gold mr-2"></i> नोट: अगर आप एक से ज्यादा सिंगल सर्विसेज साथ में लेते हैं, तो आपको स्पेशल कॉम्बो डिस्काउंट दिया जाएगा!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">Digital Marketing Packages</h2>
+                <p class="mt-4 text-gray-600">अपने बिज़नेस की ग्रोथ के लिए सही पैकेज चुनें</p>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- Startup Pack -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200 shadow-sm fade-in-section">
+                    <h3 class="text-2xl font-bold mb-2">Startup Pack 📋</h3>
+                    <p class="text-gray-500 text-sm mb-6">लोकल शुरुआत के लिए</p>
+                    <div class="mb-6">
+                        <span class="text-xl font-bold text-brand-blue">₹8k-12k</span><span class="text-sm text-gray-500"> (वेबसाइट)</span><br>
+                        <span class="text-xl font-bold text-brand-blue">+ ₹4k-6k</span><span class="text-sm text-gray-500"> /महीना</span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-700 mb-8">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 3-5 पेजों की बेसिक वेबसाइट</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> गूगल मैप्स सेटअप और वेरिफिकेशन</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 6 डिज़ाइनर इमेजेस/महीना</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 2 सिंपल रील्स/महीना</li>
+                        <li><i class="fas fa-times text-red-400 mr-2"></i> सोशल मीडिया मैनेजमेंट</li>
+                        <li><i class="fas fa-times text-red-400 mr-2"></i> पेड ऐड्स / लीड जनरेशन</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> व्हाट्सएप सपोर्ट</li>
+                    </ul>
+                    <a href="https://wa.me/919799705368?text=Hello,%20I%20am%20interested%20in%20the%20Startup%20Pack." class="block w-full py-3 px-4 bg-white border-2 border-brand-blue text-brand-blue text-center font-bold rounded-xl hover:bg-brand-blue hover:text-white transition">अभी शुरू करें ↗️</a>
+                </div>
+
+                <!-- Growth Pack (Highlighted) -->
+                <div class="bg-brand-dark rounded-3xl p-8 border-2 border-brand-gold shadow-2xl transform md:scale-105 relative fade-in-section z-10">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-gold text-brand-dark px-4 py-1 rounded-full text-sm font-bold shadow-lg">सबसे पॉपुलर</div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Growth Pack 🚀</h3>
+                    <p class="text-gray-400 text-sm mb-6">ज्यादा ग्राहक लाने के लिए</p>
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold text-brand-gold">₹12k - ₹18k</span><span class="text-sm text-gray-400"> /महीना</span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> फुल एडवांस वेबसाइट</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> गूगल मैप्स डेली ऑप्टिमाइजेशन</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 12-15 प्रीमियम ग्राफिक्स</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 4-6 हाई-क्वालिटी रील्स (टेक्स्ट/इफेक्ट्स)</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Facebook और Instagram मैनेजमेंट</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> बेसिक रिव्यूज गाइडेंस</li>
+                        <li><i class="fas fa-times text-red-400 mr-2"></i> लीड जनरेशन / ऐड्स</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> मंथली प्रोग्रेस रिपोर्ट</li>
+                    </ul>
+                    <a href="https://wa.me/919799705368?text=Hello,%20I%20am%20interested%20in%20the%20Growth%20Pack%20(Most%20Popular)." class="block w-full py-3 px-4 bg-brand-gold text-brand-dark text-center font-bold rounded-xl hover:bg-yellow-400 transition shadow-lg shadow-brand-gold/20">सबसे पॉपुलर पैक ↗️</a>
+                </div>
+
+                <!-- Dominator Pack -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200 shadow-sm fade-in-section">
+                    <h3 class="text-2xl font-bold mb-2">Dominator Pack 🔥</h3>
+                    <p class="text-gray-500 text-sm mb-6">फुल बिजनेस टेकओवर</p>
+                    <div class="mb-6">
+                        <span class="text-xl font-bold text-brand-blue">₹25k - ₹35k</span><span class="text-sm text-gray-500"> /महीना</span>
+                    </div>
+                    <ul class="space-y-4 text-sm text-gray-700 mb-8">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> ई-कॉमर्स / ऑनलाइन दुकान</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> पूरे शहर में नंबर #1 रैंकिंग (SEO)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 20+ प्रो-लेवल फेस्टिव/ब्रांड पोस्ट्स</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 8-10 वायरल रील्स (वॉइसओवर)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> सभी हैंडल्स SMM + एडवांस ब्रांडिंग</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Paid Ads (FB, Insta, Google)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 100% लीड जनरेशन (कस्टमर लिस्ट)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> 24/7 डायरेक्ट कॉल सपोर्ट</li>
+                    </ul>
+                    <a href="https://wa.me/919799705368?text=Hello,%20I%20am%20interested%20in%20the%20Dominator%20Pack%20to%2010x%20my%20business." class="block w-full py-3 px-4 bg-brand-blue text-white text-center font-bold rounded-xl hover:bg-blue-800 transition">बिजनेस को 10x बढ़ाएं ↗️</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-brand-dark/90"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 fade-in-section">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-brand-dark font-heading">अपने बिज़नेस को ग्रो करने के लिए बात करें</h2>
+                    <p class="text-gray-600 mt-2">नीचे दी गई जानकारी भरें, हमारी टीम आपको तुरंत संपर्क करेगी।</p>
+                </div>
+                
+                <!-- Custom Message Toast (Hidden by default) -->
+                <div id="formToast" class="hidden mb-6 p-4 rounded-lg bg-green-100 text-green-800 text-center font-semibold border border-green-200">
+                    <i class="fas fa-check-circle mr-2"></i> आपकी रिक्वेस्ट तैयार है! व्हाट्सएप खुल रहा है...
+                </div>
+
+                <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">आपका नाम *</label>
+                            <input type="text" id="clientName" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white/80" placeholder="e.g. Ramesh Kumar">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">मोबाइल नंबर *</label>
+                            <input type="tel" id="clientMobile" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white/80" placeholder="e.g. 9876543210">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">आपको कौनसी सर्विस चाहिए? *</label>
+                        <select id="clientService" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white/80">
+                            <option value="">-- सर्विस चुनें --</option>
+                            <option value="Website Design">वेबसाइट निर्माण / लैंडिंग पेज</option>
+                            <option value="Local SEO & Maps">लोकल SEO और गूगल मैप्स</option>
+                            <option value="Social Media Ads">सोशल मीडिया ऐड्स (Lead Generation)</option>
+                            <option value="Graphic & Video Editing">ग्राफ़िक डिज़ाइनिंग और वीडियो एडिटिंग</option>
+                            <option value="Full SEO">सर्च इंजन ऑप्टिमाइजेशन (Full SEO)</option>
+                            <option value="Complete Package">पूरा पैकेज (Startup / Growth / Dominator)</option>
+                            <option value="Other">अन्य</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-blue text-white font-bold text-lg py-4 rounded-xl hover:bg-blue-800 transition shadow-xl hover:shadow-2xl flex justify-center items-center gap-2">
+                        Send Request 🚀
+                    </button>
+                    <p class="text-xs text-center text-gray-500 mt-4">क्लिक करते ही आपकी डिटेल्स हमारे WhatsApp (+919799705368) पर भेज दी जाएगी।</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center fade-in-section">
+            <h2 class="text-3xl font-bold text-brand-dark font-heading">हमारे संतुष्ट क्लाइंट्स</h2>
+            <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+        </div>
+        
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <!-- Items list 1 -->
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ SS Service Ajmer</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Satyasam Classes Kekri</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Sarwar Computer Center</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Kunjika Fashion Kishangarh</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Friends Cafe Sarwar</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Rahul Academy Pushkar</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Akash Mewara CA</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Vishwas Telecome Kekri</div>
+                
+                <!-- Duplicated for seamless scrolling -->
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Vinayak Public School</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Adarsh Vidhya Mandir</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Balaji Event</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Ajmer Property</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Ajmer Doctors</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Kekri Market</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Jaipur Market</div>
+                <div class="px-6 py-3 bg-gray-100 rounded-full text-brand-dark font-semibold whitespace-nowrap shadow-sm border border-gray-200">✨ Local Business</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ebook" class="py-24 bg-[#0B1120] text-center relative border-t border-b border-brand-gold/30">
+        <div class="max-w-4xl mx-auto px-4 relative z-10 fade-in-section">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-gold/20 text-brand-gold text-sm font-bold tracking-widest mb-6">🔥 MEGA OFFER LIVE NOW</span>
+            
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white font-heading leading-tight mb-8">
+                क्या आपको किताबें पढ़ने का शौक है?
+            </h2>
+            
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed font-light mb-10">
+                <span class="font-bold text-white">200+ बेस्ट सेलर ई-बुक्स (E-Books) का महा-बंडल</span> – मोटिवेशन, माइंड सेट, सफलता और बिज़नेस ग्रोथ। अपनी सोच और जीवन को बदलने वाली दुनिया की सबसे बेहतरीन किताबें अब एक साथ!
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
+                <div class="text-gray-400 text-2xl font-bold">
+                    कीमत: <del class="text-red-500">₹1999</del>
+                </div>
+                <div class="text-5xl md:text-6xl font-black text-brand-gold drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]">
+                    सिर्फ ₹49
+                </div>
+            </div>
+            
+            <a href="https://pages.razorpay.com/rudradigitalebooks" target="_blank" class="inline-block bg-brand-gold text-brand-dark text-xl md:text-2xl font-bold px-10 py-5 rounded-full hover:bg-yellow-400 hover:scale-105 transition transform shadow-[0_0_30px_rgba(245,158,11,0.6)]">
+                यहाँ क्लिक करें और डाउनलोड करें ⬇️
+            </a>
+        </div>
+    </section>
+
+    <section id="store" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark font-heading">Rudra Recommends (Amazon Store)</h2>
+                <p class="mt-4 text-gray-600">आपके बिज़नेस और प्रोडक्टिविटी के लिए बेस्ट गैजेट्स और किताबें</p>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-4 rounded"></div>
+                <!-- JS script logic note -->
+                <p class="text-xs text-gray-400 mt-4"><i class="fas fa-sync fa-spin mr-1"></i> Items refresh every 24 hours automatically.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex justify-center mb-10 overflow-x-auto no-scrollbar fade-in-section">
+                <div class="flex space-x-2 bg-gray-200 p-1 rounded-xl">
+                    <button onclick="openTab(event, 'tab-gadgets')" class="tab-btn active bg-white shadow text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Gadgets</button>
+                    <button onclick="openTab(event, 'tab-laptops')" class="tab-btn text-gray-600 hover:text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Laptops</button>
+                    <button onclick="openTab(event, 'tab-mobiles')" class="tab-btn text-gray-600 hover:text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Mobiles</button>
+                    <button onclick="openTab(event, 'tab-books')" class="tab-btn text-gray-600 hover:text-brand-dark font-semibold px-6 py-2 rounded-lg transition">Books (Hindi)</button>
+                </div>
+            </div>
+
+            <!-- Tab Content: Gadgets -->
+            <div id="tab-gadgets" class="tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Using realistic placehold.co images for placeholders to prevent broken images -->
+                <script>
+                    const amazonLink = "https://amzn.to/4oKORTC"; // vsjadana0e-21
+                    
+                    function createProductCard(title, cat, price, imgText) {
+                        const imgUrl = `https://placehold.co/400x400/ffffff/1E3A8A?text=${encodeURIComponent(imgText)}`;
+                        return `
+                        <div class="bg-white rounded-xl shadow p-4 flex flex-col hover:shadow-lg transition">
+                            <img src="${imgUrl}" alt="${title}" class="w-full h-32 object-contain mb-4 rounded" onerror="this.src='https://placehold.co/400x400/eee/999?text=Image+Not+Found'">
+                            <span class="text-xs text-gray-500 mb-1">${cat}</span>
+                            <h4 class="font-bold text-sm mb-2 flex-grow">${title}</h4>
+                            <div class="font-bold text-brand-blue mb-3">${price}</div>
+                            <a href="${amazonLink}" target="_blank" class="w-full text-center bg-yellow-400 text-black py-2 rounded-lg text-sm font-bold hover:bg-yellow-500 transition">Buy on Amazon</a>
+                        </div>`;
+                    }
+                </script>
+                
+                <div id="gadgets-container" class="contents"></div>
+            </div>
+
+            <!-- Tab Content: Laptops -->
+            <div id="tab-laptops" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div id="laptops-container" class="contents"></div>
+            </div>
+
+            <!-- Tab Content: Mobiles -->
+            <div id="tab-mobiles" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div id="mobiles-container" class="contents"></div>
+            </div>
+
+            <!-- Tab Content: Books -->
+            <div id="tab-books" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div id="books-container" class="contents"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- About -->
+                <div>
+                    <h3 class="text-2xl font-bold font-heading tracking-wider mb-6">
+                        Rudra<span class="text-brand-gold">Digital</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We help small businesses in Rajasthan and across India grow online with affordable and high-quality web design, SEO, and lead generation services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@rudradigitalmarketings" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/919799705368" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#services" class="hover:text-brand-gold transition">Our Services</a></li>
+                        <li><a href="#packages" class="hover:text-brand-gold transition">Pricing Packages</a></li>
+                        <li><a href="#ebook" class="hover:text-brand-gold transition">E-Book Offer</a></li>
+                        <li><a href="#store" class="hover:text-brand-gold transition">Amazon Affiliate Store</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-gold"></i>
+                            <span>Sarwar, Rajasthan, India<br>(Service Area: All Over India)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-brand-gold"></i>
+                            <a href="tel:+919799705368" class="hover:text-white transition">+91 9799705368</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-gold"></i>
+                            <a href="mailto:rudradigitalmarketings@gmail.com" class="hover:text-white transition">rudradigitalmarketings@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Google Map -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Our Location</h4>
+                    <div class="w-full h-40 rounded-lg overflow-hidden border border-white/20">
+                        <!-- Embedded Google Map using a standard embed format -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114092.34863677443!2d74.9392233!3d26.0664402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c21e6be794a0d%3A0xc64e16d0034a6c4c!2sSarwar%2C%20Rajasthan%20305403!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-white/10 py-6 text-center text-sm text-gray-500">
+            <p>&copy; 2026 Rudra Digital Marketings. Call/WhatsApp: +91 9799705368. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Intersection Observer for Scroll Fade-In Animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach((section) => {
+                observer.observe(section);
+            });
+
+            // 2. Populate Store Products Dynamically
+            const gadgets = [
+                {t: "Syrotech Tripod for Mobile/Camera", c: "Gadgets", p: "Best Seller", img: "Syrotech Tripod"},
+                {t: "Wireless Mouse Pro", c: "Gadgets", p: "₹499", img: "Wireless Mouse"},
+                {t: "Bluetooth Speaker bass+", c: "Gadgets", p: "₹899", img: "Bluetooth Speaker"},
+                {t: "10000mAh Power Bank", c: "Gadgets", p: "₹999", img: "Power Bank"},
+                {t: "Smartwatch Fitness Band", c: "Gadgets", p: "₹1,299", img: "Smartwatch"},
+                {t: "TWS Earbuds ANC", c: "Gadgets", p: "₹1,499", img: "TWS Earbuds"}
+            ];
+            
+            const laptops = [
+                {t: "HP 15s Ryzen 3 (8GB/512GB)", c: "Laptops", p: "Budget Choice", img: "HP 15s Ryzen 3"},
+                {t: "Dell Inspiron 15", c: "Laptops", p: "₹38,990", img: "Dell Inspiron"},
+                {t: "Lenovo IdeaPad Slim 3", c: "Laptops", p: "₹35,990", img: "Lenovo IdeaPad"},
+                {t: "ASUS VivoBook 15", c: "Laptops", p: "₹33,990", img: "ASUS VivoBook"},
+                {t: "Acer Aspire Lite", c: "Laptops", p: "₹31,990", img: "Acer Aspire"},
+                {t: "Apple MacBook Air M1", c: "Laptops", p: "Premium", img: "MacBook Air"}
+            ];
+
+            const mobiles = [
+                {t: "Moto G32", c: "Mobiles", p: "₹9,999", img: "Moto G32"},
+                {t: "Samsung Galaxy M14", c: "Mobiles", p: "₹12,490", img: "Galaxy M14"},
+                {t: "Redmi 12 5G", c: "Mobiles", p: "₹11,999", img: "Redmi 12"},
+                {t: "Realme C55", c: "Mobiles", p: "₹10,999", img: "Realme C55"},
+                {t: "Poco M5", c: "Mobiles", p: "₹8,999", img: "Poco M5"},
+                {t: "OnePlus Nord CE 3 Lite", c: "Mobiles", p: "₹19,999", img: "OnePlus Nord"}
+            ];
+
+            const books = [
+                {t: "द सीक्रेट (The Secret - Hindi)", c: "Books", p: "₹350", img: "The Secret"},
+                {t: "सोचिए और अमीर बनिए", c: "Books", p: "₹149", img: "Think & Grow Rich"},
+                {t: "रिच डैड पुअर डैड", c: "Books", p: "₹199", img: "Rich Dad Poor Dad"},
+                {t: "चाणक्य नीति", c: "Books", p: "₹120", img: "Chanakya Neeti"},
+                {t: "एटॉमिक हैबिट्स", c: "Books", p: "₹250", img: "Atomic Habits"},
+                {t: "जीत आपकी (Shiv Khera)", c: "Books", p: "₹220", img: "Jeet Aapki"}
+            ];
+
+            document.getElementById('gadgets-container').innerHTML = gadgets.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
+            document.getElementById('laptops-container').innerHTML = laptops.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
+            document.getElementById('mobiles-container').innerHTML = mobiles.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
+            document.getElementById('books-container').innerHTML = books.map(i => createProductCard(i.t, i.c, i.p, i.img)).join('');
+        });
+
+        // 3. Tab Switching Logic for Store
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.add("hidden");
+            }
+            
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("bg-white", "shadow", "text-brand-dark");
+                tablinks[i].classList.add("text-gray-600");
+            }
+            
+            document.getElementById(tabName).classList.remove("hidden");
+            evt.currentTarget.classList.add("bg-white", "shadow", "text-brand-dark");
+            evt.currentTarget.classList.remove("text-gray-600");
+        }
+
+        // 4. Form Submit Logic (WhatsApp + Email)
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Stop page reload
+
+            const name = document.getElementById('clientName').value;
+            const mobile = document.getElementById('clientMobile').value;
+            const service = document.getElementById('clientService').value;
+
+            if(!name || !mobile || !service) return;
+
+            // Construct WhatsApp Message
+            const waText = `Hello Rudra Digital Marketings,%0A%0AI want to grow my business. Here are my details:%0A*Name:* ${name}%0A*Mobile:* ${mobile}%0A*Service Required:* ${service}%0A%0APlease contact me.`;
+            const waUrl = `https://wa.me/919799705368?text=${waText}`;
+
+            // Trigger silent Mailto in background (Browsers might block opening two tabs at once, so we focus on WA first)
+            const mailSubject = encodeURIComponent(`New Lead from Website - ${name}`);
+            const mailBody = encodeURIComponent(`Name: ${name}\nMobile: ${mobile}\nService: ${service}`);
+            const mailUrl = `mailto:rudradigitalmarketings@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+            
+            // Show custom toast message instead of alert()
+            const toast = document.getElementById('formToast');
+            toast.classList.remove('hidden');
+            
+            setTimeout(() => {
+                // Open Email client slightly before WhatsApp to ensure both trigger
+                window.location.href = mailUrl;
+                
+                setTimeout(() => {
+                    // Open WhatsApp in new tab
+                    window.open(waUrl, '_blank');
+                    
+                    // Reset Form
+                    document.getElementById('leadForm').reset();
+                    toast.classList.add('hidden');
+                }, 500);
+            }, 1000);
+        }
     </script>
 </body>
 </html>
